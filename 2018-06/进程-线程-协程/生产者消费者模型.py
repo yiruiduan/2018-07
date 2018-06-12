@@ -14,7 +14,7 @@ def Porducer():
         time.sleep(2)
 
 def Consumer(name):
-    while q.qsize()>0:
+    while True:
         print("[%s] 取到 %s并且吃了它"%(name,q.get()))
         time.sleep(1)
 
