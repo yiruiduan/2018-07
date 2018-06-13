@@ -14,3 +14,12 @@
     主线程的修改有可能会影响到其他线程的运行的行为，对于父进程的修改对其子进程没有影响
 
 进程要操作cpu，必须要创建一个线程，
+
+python多线程   不适合cpu密集操作型任务，适合io操作密集型任务
+多进程解决多核的问题
+
+
+通过queue和pipe只是实现了进程之间的数据的传递，并没有真正的实现了数据的共享
+通过manager实现列表，字典 list, dict, Namespace, Lock, RLock, Semaphore, BoundedSemaphore, Condition, Event, Barrier, Queue, Value and Array
+等数据的共享
+进程锁是控制进程对屏幕的共享的，不让打印数据乱

@@ -26,15 +26,16 @@ def ssh_sftp(host_message,cmd,file_name):
     sftp=paramiko.SFTPClient.from_transport(transport)
     if cmd == "put":
         sftp.put(file_name,"/root/%s"%file_name)
-    elif cmd == "get":
-        try:
-            sftp.get(file_name, file_name)
-        except FileNotFoundError as e:
-            print("没有找到文件！！！")
-        transport.close()
+    # elif cmd == "get":
+    #     try:
+    #         sftp.get(file_name, file_name)
+    #     except FileNotFoundError as e:
+    #         print("没有找到文件！！！")
+    #     transport.close()
 
+echo_host(host_list1)
 cmd=input(">>:")
-if cmd.startswith("put") or cmd.startswith("get"):
+if cmd.startswith("put"):
     for host_message in host_list1:
         t=threading.Thread(target=ssh_sftp,args=(host_message,cmd.split()[0],cmd.split()[1]))
         t.start()
