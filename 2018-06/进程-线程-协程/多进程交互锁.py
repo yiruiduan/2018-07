@@ -12,6 +12,6 @@ def f(l,i):
 
 if __name__=="__main__":
     lock=Lock()
-    for num in range(100):
+    for num in range(10):
         p=Process(target=f,args=(lock,num))
         p.start()

@@ -23,3 +23,11 @@ python多线程   不适合cpu密集操作型任务，适合io操作密集型任
 通过manager实现列表，字典 list, dict, Namespace, Lock, RLock, Semaphore, BoundedSemaphore, Condition, Event, Barrier, Queue, Value and Array
 等数据的共享
 进程锁是控制进程对屏幕的共享的，不让打印数据乱
+
+
+多进程进程池，同一时间有多少个进程在cpu上运行
+apply_async是并行执行   apply是串行执行
+先要做pool.close()
+再做pool.jion()#进程池中进程执行完毕后再关闭，如果不添加，那么程序直接关闭。
+pool.apply_async(func=Foo,args=(i,),callback=Bar)   callback回调   是主进程执行的回调试用场景子进程做完事让主进程建立一次连接就可以对所有子进程的执行情况写日志
+
