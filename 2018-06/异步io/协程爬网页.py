@@ -5,18 +5,20 @@ import gevent
 import time
 from gevent import monkey
 from urllib.request import urlopen
-monkey.patch_all()
+monkey.patch_all()  #把当前程序的io操作单独的做上标记
 
 def get_url(url):
     print("GET %s"%url)
     resp=urlopen(url)
     data=resp.read()
     print('%d bytes received from %s.' % (len(data), url))
+
 urls=[
     "https://www.python.org/",
     "https://www.yahoo.com/",
     "https://github.com/"
 ]
+
 start_time=time.time()
 for url in urls:
     get_url(url)
