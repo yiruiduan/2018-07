@@ -1,0 +1,8 @@
+RabbitMQ 消息队列
+    queue 线程queue只是适用于线程之间的交互
+          进程queue只是适用于父进程与子进程交互，或同一父进程下的多个子进程之间进行交互
+          两个完全独立的python程序也不能进行通行
+     erlang开发的，必须先安装erlang语言。
+Redis
+
+MySQL
