@@ -15,7 +15,7 @@ channel.queue_declare(queue="hello",durable=True)
 
 def callback(ch, method, properties, body):   #回调函数
     # print("============>",ch,"\n",method,"\n",properties)
-    time.sleep(3)
+    # time.sleep(3)
     print("[x] received %r"%body.decode("utf-8"))
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
