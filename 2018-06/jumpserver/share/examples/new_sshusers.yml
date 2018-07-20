@@ -1,0 +1,21 @@
+
+
+root_user:
+  auth_type:  ssh-passwd
+  username: root
+  password: zyyrd530487
+
+svn_user:
+  auth_type:  ssh-passwd
+  username: yiruiduan
+  password: yiruiduan
+
+mysql_user:
+  auth_type:  ssh-key
+  username: root
+  #password: abc!23
+
+socket_user:
+  auth_type:  ssh-passwd
+  username: yinuo
+  password: yinuo

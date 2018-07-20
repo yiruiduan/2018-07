@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: jikan-sqlalchemy-utils
+Version: 0.0.5
+Summary: jikan sqlalchemy utilities
+Home-page: https://hydra.bacontoast.org/f/jikan_sqlalchemy_utils/
+Author: jikan@cock.li
+Author-email: jikan@cock.li
+License: LGPLv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
