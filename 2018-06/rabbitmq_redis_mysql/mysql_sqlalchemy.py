@@ -3,10 +3,10 @@
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column,DATE,String,Integer,Enum,union,TIMESTAMP,ForeignKey
+from sqlalchemy import Column,DATE,String,Integer,Enum,union,TIMESTAMP,ForeignKey,UniqueConstraint
 from  sqlalchemy.orm import sessionmaker,relationship
-
-engine=create_engine("mysql+pymysql://yiruiduan:yiruiduan@192.168.1.115/oldboy",encoding="utf-8")
+from sqlalchemy_utils import ChoiceType,PasswordType
+engine=create_engine("mysql+pymysql://yiruiduan:yiruiduan@192.168.1.115/jumpserver",encoding="utf-8")
 Base=declarative_base()
 
 # class Family(Base):
@@ -20,29 +20,40 @@ Base=declarative_base()
 #     def __repr__(self):
 #         return "<%s name:%s>"%(self.fm_id,self.name)
 
-class Student(Base):
-    __tablename__= "student"
-    stu_id=Column(Integer,primary_key=True)
-    name=Column(String(32),nullable=False)
-    # age=Column(Integer,nullable=False)
-    register_date=Column(DATE,nullable=False)
-    # time_stamp=Column(TIMESTAMP,nullable=False)
-    # sex=Column(Enum('M','F'),nullable=False,default="M")
-
-    def __repr__(self):
-        return "<%s name:%s>"%(self.stu_id,self.name)
-
-class StudyRecord(Base):
-    __tablename__="study_record"
-    id=Column(Integer,primary_key=True)
-    day=Column(Integer,nullable=False)
-    status=Column(String(32),nullable=False)
-    stu_id=Column(Integer,ForeignKey("student.stu_id"))
-
-    student=relationship("Student",backref="my_study_record")
-
-    def __repr__(self):
-        return "<name:%s %sday status:%s>"%(self.student.name,self.day,self.status)
+# class Student(Base):
+#     __tablename__= "student"
+#     stu_id=Column(Integer,primary_key=True)
+#     name=Column(String(32),nullable=False)
+#     # age=Column(Integer,nullable=False)
+#     register_date=Column(DATE,nullable=False)
+#     # time_stamp=Column(TIMESTAMP,nullable=False)
+#     # sex=Column(Enum('M','F'),nullable=False,default="M")
+#
+#     def __repr__(self):
+#         return "<%s name:%s>"%(self.stu_id,self.name)
+#
+# class StudyRecord(Base):
+#     __tablename__="study_record"
+#     id=Column(Integer,primary_key=True)
+#     day=Column(Integer,nullable=False)
+#     status=Column(String(32),nullable=False)
+#     stu_id=Column(Integer,ForeignKey("student.stu_id"))
+#
+#     student=relationship("Student",backref="my_study_record")
+#
+#     def __repr__(self):
+#         return "<name:%s %sday status:%s>"%(self.student.name,self.day,self.status)
+class Ssh_User(Base):
+    __tablename__="ssh_user"
+    __table_args__ =(UniqueConstraint("username","password","auth_type",name="_user_password_uc"),)
+    AuthType=[
+        ("ssh-password","SSH/Password"),
+        ("ssh-key","SSH/KEY")
+    ]
+    id = Column(Integer, primary_key=True)
+    username=Column(String(32))
+    password=Column(String(128))
+    auth_type=Column(String(255))
 
 
 Base.metadata.create_all(engine)
@@ -71,6 +82,6 @@ session=session_class()
 # # session.commit()
 # data=session.query(Family,Student).filter(Family.name==Student.name).all()
 # print(data)
-data=session.query(Student).filter_by(name="zhangye").first().my_study_record
-print(data[0].status)
+data=session.query(Ssh_User).filter().all()
+# print(data)
 print(data)

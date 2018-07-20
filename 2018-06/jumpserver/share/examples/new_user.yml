@@ -1,0 +1,22 @@
+
+
+root:
+  password: zyyrd530487
+  groups:
+    - web_servers
+    - db_servers
+  #bind_hosts:
+  #  - h1
+  #  - h2
+  #  - h3
+yiruiduan:
+  password: 19880618
+
+yinuo:
+  password: 20130924
+  #bind_hosts:
+  #  - h1
+  #  - h3
+
+
+

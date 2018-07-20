@@ -6,7 +6,7 @@ ssh=paramiko.SSHClient()
 #ssh容许链接不在know-hosts文件中的主机
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 #连接服务器
-ssh.connect(hostname="192.168.1.161",port=22,username="root",password="zyyrd530487")
+ssh.connect(hostname="192.168.1.115",port=22,username="yiruiduan",password="yiruiduan")
 #执行命令15768000
 while True:
     cmd=input(">>:")

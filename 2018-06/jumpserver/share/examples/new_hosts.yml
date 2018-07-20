@@ -1,0 +1,20 @@
+
+#h1:
+#  ip_addr: 192.168.1.1
+#  port: 20022
+
+#h2:
+#  ip_addr: 192.168.1.100
+#  port: 22
+
+
+svn:
+  ip_addr: 192.168.1.125
+  port: 22
+
+mysql:
+  ip_addr: 192.168.1.115
+  port: 22
+
+socket_server:
+  ip_addr: 192.168.1.161

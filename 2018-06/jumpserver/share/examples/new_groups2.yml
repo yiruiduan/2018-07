@@ -1,0 +1,15 @@
+
+bj_group:
+  #bind_hosts:
+  #  - h1
+  #  - h2
+  jump_users:
+    - yiruiduan
+
+sh_group:
+  jump_users:
+    - root
+    - yiruiduan
+    - yinuo
+
+
