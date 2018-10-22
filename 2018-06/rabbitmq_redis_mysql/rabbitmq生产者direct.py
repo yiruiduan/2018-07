@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 import pika
 import sys
-credentials=pika.PlainCredentials("admin","admin")
-connecttion=pika.BlockingConnection(pika.ConnectionParameters("192.168.1.161",5672,"/",credentials))
+credentials=pika.PlainCredentials("rabbit","123456")
+connecttion=pika.BlockingConnection(pika.ConnectionParameters("192.168.1.190",32672,"/",credentials))
 channel=connecttion.channel()
 #申明exchange
 channel.exchange_declare(exchange="direct_logs",exchange_type="direct",durable=True)

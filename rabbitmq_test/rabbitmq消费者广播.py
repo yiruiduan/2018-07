@@ -12,14 +12,14 @@ result = channel.queue_declare(exclusive=True)  # 不指定queue名字,rabbit会
 queue_name = result.method.queue      #生成queuename
 print("\033[31;1m%s\033[0m"%queue_name)
 
-channel.queue_bind(exchange='logs',
+channel.queue_bind(exchange='car_check',
                    queue=queue_name)
 
 print(' [*] Waiting for logs. To exit press CTRL+C')
 
 
 def callback(ch, method, properties, body):
-    print(" [x] %r" % body)
+    print(" [x] %r" % body.decode("utf-8"))
 
 
 channel.basic_consume(callback,

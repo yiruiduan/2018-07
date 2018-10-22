@@ -1,0 +1,19 @@
+.c1{
+    background: aqua;
+    color: red;
+}
+.c2{
+    color: black;
+    font-size: 20px;
+}
+.c3{
+    height: 48px;
+    width: 80%;
+    color: white;
+    background: red;
+    text-align: center;
+    line-height: 48px;
+    font-size: 20px;
+    font-weight: 800;
+
+}

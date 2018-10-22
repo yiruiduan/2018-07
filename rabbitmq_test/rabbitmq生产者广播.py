@@ -9,12 +9,12 @@ channel=connection.channel()
 channel.exchange_declare(exchange="car_check",
                         exchange_type="fanout",durable=True)
 
-message = '什么问题'.join(sys.argv[1:]) or "where!"
+message = ' '.join(sys.argv[1:]) or "这是什么情况"
 channel.basic_publish(exchange='car_check',
                       routing_key='',
                       body=message,
                       properties=pika.BasicProperties(
-                          delivery_mode=2,
+                          delivery_mode=1,
                       )
                       )
 print(" [x] Sent 'Hello World!'")

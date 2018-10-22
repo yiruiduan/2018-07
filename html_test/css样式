@@ -1,0 +1,72 @@
+在每一个标签上设置style属性：
+        background: #7d0b0b;
+        height: 48px;
+
+编写css样式：
+        1.标签的style属性
+        2.head里面写style标签中 写样式
+            - id选择器
+                #i1{
+                }
+            - class选择器
+                .名称{
+                .....
+                }
+            <标签 class="名称"></标签>
+
+            - 标签选择器
+                div{
+                }
+                把html中所有的div设置上样式
+            - 层级选择器   空格连接
+            - 组合选择器   ，连接
+            - 属性选择器   对选择到的标签再通过属性再进行一次筛选
+
+css样式可以写在单独文件中
+    引入方式：<link rel="stylesheet" href="commons.css"/>
+
+优先级：
+    标签上的style优先，其他按照编写顺序，越往下越优先
+
+边框
+    -  宽度，样式，颜色（border: 1px dotted red）
+    -  上下左右
+
+背景
+    -
+
+float
+    让标签飘起来，块级标签也可以堆叠
+
+display
+    display:none
+    display:inline;
+    display:block;
+    display:inline-block
+            具有inline属性，自己有多少占多少
+            具有block属性，可以设置无法设置的高度，宽度，padding，margin
+    ********
+    行内标签无法设置高度宽度和边距
+    块级标签是可以设置的
+
+
+padding margin(0,auto)
+    边距，margin:外边距
+
+          padding:内边距
+
+text-align
+
+height,width,line-height,color,font-size,font-weight
+    height: 48px;  高度   px百分比
+    width: 80%;    宽度   ps百分比
+    color: white;  字体颜色
+    background: red; 背景颜色
+    text-align: center; 水平居中
+    line-height: 48px;  垂直方向   根据标签的高度
+    font-size: 20px;    字体大小
+    font-weight: 800;   字体加粗
+
+
+
+

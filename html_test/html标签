@@ -1,0 +1,64 @@
+body标签
+1.各种符号   &nbsp;  &gt; &lt;
+2.p标签和br标签   p标签：段落标签
+                  br标签；用来做换行的
+3.h标签
+=============================================
+   所有的标签分为块级标签：h标签（加大加粗），p标签（段落和段落之间有间距）,div(白板)
+                 行内标签：span标签（白板）
+   标签之间可以嵌套：
+   标签存在的意义，定位操作，css，js操作方便
+   input系列：
+       input type="text"        name属性
+       input type="password"    name属性
+       input type="submit"      提交表单的按钮
+       input type="reset"      提交表单的按钮
+       input type="button"      按钮
+       input type="radio"       单选框name，value属性（name相同就互斥）
+       input type="checkbox"    复选框name，value属性（后台直接批量获取数据）
+       input type="file"   name="filename"    上传文件   依赖于表单的一个属性enctype="multipart/form-data"
+   多行输入系列：
+       textarea                 name属性   默认值放中间
+
+       select标签               name属性   内部option，value，selected
+
+   a标签：
+       跳转                     type  _blank
+       锚                       href="#某个标签的id"  标签的id不容许重复
+
+   img标签
+       src
+       alt
+       title
+   列表：
+        ul
+            li
+        ol
+            li
+        dl
+            dt
+                dd
+
+   表格：
+       table；
+           thead：
+               tr
+               th
+           tbody：
+               tr
+               td
+           colspan合并列
+           rowspan合并行
+
+   lable标签：
+       用于获取光标：
+       <label for="username">
+        <img src="1.png" style="height: 20px;width: 20px">
+        </label>
+        <input id="username" type="text"/>
+
+    fieldset:
+        legend
+
+
+

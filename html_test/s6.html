@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form action="http://localhost:9998/index" enctype="multipart/form-data">
+        <div>
+            <p>请选择性别</p>
+            男：<input type="radio" checked="checked" name="sex" value="1" />
+            女：<input type="radio" name="sex" value="2"/>
+            <p>爱好</p>
+            篮球：<input type="checkbox" name="favor" value="1" />
+            足球：<input type="checkbox" name="favor" value="2"/>
+            排球：<input type="checkbox" name="favor" value="3"/>
+            台球：<input type="checkbox" checked="checked" name="favor" value="4"/>
+            网球：<input type="checkbox" name="favor" value="5"/>
+            <p>上传文件</p>
+            <input type="file"/>
+            <textarea name="meno">请输入</textarea>
+        </div>
+         <select name="area" size="10" multiple="multiple">
+             <optgroup label="河北">
+                 <option>石家庄</option>
+                 <option>张家口</option>
+                 <option>保定</option>
+             </optgroup>
+             <optgroup label="江苏">
+                 <option>南京</option>
+                 <option>镇江</option>
+                 <option>扬州</option>
+             </optgroup>
+         </select>
+        <input type="submit" value="提交"/>
+    </form>
+</body>
+</html>
