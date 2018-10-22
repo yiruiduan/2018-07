@@ -1,0 +1,2227 @@
+I 路通平台服务-详细接口文档
+
+访问说明
+一,以下所有接口参数中,均需要加入其他三项必填参数:
+参数	说明
+SecurityToken	访问token值,见下面的生成方法
+ClientId	访问用户名
+Timestamp	当前时间戳,精确到毫秒
+
+二,SecurityToken值的生成方法为（java版）：
+long time = System.currentTimeMillis();		//生成当前时间戳
+String data = "CHANEL_GD" + time + "222.128.104.218"; //已授权的公网ip
+String key = "MGLDSJKLJ780ew54";
+String newToken = new String(HMAC.encryptHMAC(data.getBytes(), key), "UTF-8");	//使用HMAC算法加密
+System.out.println("时间戳:"+time);
+System.out.println("SecurityToken值:"+newToken);
+
+备注:使用HMAC算法进行签名加密，jdk版本1.8+
+
+
+-------------------------华丽分割线----------------------------
+单一report接口
+5.单一路线详情(可用)  禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/searchById.json
+参数	{
+regionCode:XXX   //政区编码(必填项)
+roadNumber:XXX    //路线编号(必填项)
+year:XXX   年份 默认为2015年(选填项)
+isYear:XXX  非填项.默认true
+user_id:XXX  用户id
+state:XXX  状态标识 非填  0-从首页进入 非0或null为其他模块进入
+}
+返回值	{
+     state:XXX 是否有数据  0-有  1-没有
+     security:XXX 是否有权查评定数据(0-有 1-否 2-越级查看)
+isRoadAssetMent：XXX //是否有评定数据  值为true或false
+isRoadAssetMentList:[“pqi“,“pci“,“rqi“,“rdi“,“sri“,“pssi“] //需要隐藏的选项
+isRoadFrontImg:XXX  是否有前方图像数据 值为true或false
+     title:XXX         XX段(仅在国道路线时有数据.)
+     regionCode:XXX   政区编码
+	roadName:XXX		//路线名称 全称
+     roadJName:XXX     //路线名称 简称
+	roadGrade:XXX       //国道,国高,省高,省道,县道
+     provinceAbbrName:XXX  //省简称
+	startName:XXX       //起点名称
+	startPointPNO:XXX	//起点桩号
+	endName:XXX			//终点名称
+	endPointPNO:XXX		//桩点桩号
+	countMile:XXX		//路线长度
+	afterCityList:[... ...]    //途径地市
+	bridgeList：[]      //桥梁详细列表数据
+	tunnelList：[]      //隧道详细列表数据
+	serviceAreaCount:0		//服务区数量
+	bridgeCount:0			//桥梁数量
+	tunnelCount:0			//隧道数量
+evalCountMile:XXX  //评定总里程
+newYear:XXX       //最新评定年份
+evelPercentMile:XXX //评定里程占总里程百分比
+roadRankNumber：XXX  //排名数
+gradeList:[
+    {
+        Label:XXX   //指标名
+        name:XXX    //指标中文名
+        val:XXX      //指标平均值
+        grade:XXX   //优,良,... ...
+        color:XXX   //颜色值
+    }
+    ... ...
+]
+percentList：[
+    {
+       Label:XXX   指标名称
+       Percent1:XXX   优所占百分比
+       Percent2:XXX   良所占百分比
+       Percent3:XXX   中所占百分比
+       Percent4:XXX   次所占百分比
+       Percent5:XXX   差所占百分比
+       Percent1Color:XXX  颜色值
+       Percent2Color:XXX
+       Percent3Color:XXX
+       Percent4Color:XXX
+       Percent5Color:XXX
+    }
+    ... ...
+]
+}
+
+
+6.单一地图详情路线详情(可用)  禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/searchMapRoadData.json
+参数	{
+regionCode:XXX   //政区编码(必填项)
+roadNumber:XXX    //路线编号(必填项)
+user_id:XXX 用户id
+}
+返回值	{
+	error:0
+    distance:XXX  距离值
+roadNumber:XXX 路线编号
+security:XXX 权限状态 0-有权限 1-无权限 2-越级
+roadName:XXX 路线名称
+roadJName:XXX 路线名称简称
+title:XXX  //XX段.例如”山东段” 无段数据时.为字符串空值
+regionCode:XXX  政区编码
+startPNO:XXX 起始桩号
+endPNO:XXX 终点桩号
+countMile：XXX  总里程 单位km
+year:XXX 年份
+roadGrade:XXX       //国道,国高,省高,省道,县道
+provinceAbbrName:XXX   省简称
+afterCityList:[... ...]    //途径地市
+currentCity:XXX     //当前地区位置名称
+isRoadAssetMent：XXX //是否有评定数据  值为true或false
+isRoadAssetMentList:[“pqi“,“pci“,“rqi“,“rdi“,“sri“,“pssi“] //需要隐藏的选项
+isRoadFrontImg:XXX  是否有前方图像数据 值为true或false
+list:[          //坐标点及附属数据集合
+      {
+          regionCode:XXXX
+          list:[
+             {
+                mgps:XXX  高德坐标
+                roadNumber:XXX 路线编号
+                responsibleCode:XXX 管养单位
+                cityCode:XXX 当前所在地区位置名称
+                centerPNO:XXX 当前桩号
+}
+... ...
+]
+}
+... ...
+]
+}
+
+
+
+
+
+7.单一桥梁详细(可用)  禁用病害数据
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/searchById.json
+参数	{
+regionCode:XXX,               //政区编码 选填
+roadNumber:XXX,                  //路线编号 必填
+bridgeName:XXX                //桥梁名称  必填
+}
+返回值	{
+	error:0,				//0-成功 1-查询失败 2-其他异常
+      regionCode:XXX 政区编码
+	diseList:[                  //病害信息
+		{
+			Type:XXX       //病害类型
+                    genusComponent:XXX  //所属部件
+                    defectPoint:XXX       //缺损位置
+                    whereComponent:XXX   //所在构件
+                    Scaling:XXX            //病害标度
+                    Demark:XXX           //病害描述
+		}
+	]
+      List:[                   //桥梁信息
+             {
+                  bridgeName:XXX   //桥梁名称
+                  spanCName:XXX    //跨径分类
+                  structureName:XXX    //结构分类
+                  provinceName:XXXX    //省份名称
+                  cityName:XXX           //城市名称
+                  roadNumber:XXX        //路线编号
+                  roadName:XXX       //路线名称
+                  buildYear:XXX             //修建年度
+                  bridgeCWidth:XXX       //桥面净宽
+                  responsibleName:XXX    //管养单位
+             }
+      ]
+}
+
+
+8.单一服务区(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/searchById.json
+参数	{
+regionCode:XX,         //政区编码（选填）
+roadNumber:XXX         //路线编号(必填)
+serName:XXX              //服务区名称(必填)
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     regionCode:XXX 政区编码
+	list:[
+		{
+			serviceAreaContent:XXX,	//服务区内容
+	    run_cityName:XXX,	   //所在城市
+			run_provinceName:XXX,	//所在省份
+			roadNumber:XXX  //路线编号
+              demark:XXX    //备注简介
+              mgps:XXX  高德坐标
+              pileno:XXX  桩号
+		}
+	]
+}
+
+
+9.单一隧道(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/searchById.json
+参数	{
+regionCode:XX,         //政区编码 必填
+roadNumber:XXX         //路线编号(必填)
+name:XXX              //隧道名称 必填
+}
+返回值	{
+	error:0,
+    regionCode:XXX 政区编码
+	regionMap：{
+		sheng:XXX 省份名
+		shi:XXX	市名称
+		xian:XXX  县名称
+	},
+	list:[
+		{
+			regionCode:XXX 政区编码
+			roadNumber:XXX 路线编号
+			typeName:XXX  隧道类型
+			cWidth:XXX	隧道净宽
+			gateLength:XXX	隧道全长
+			buildYear:XXX	修建年度
+              centerPNO:XXX  中心桩号
+			cHeight:XXX		隧道净高
+			responsibleName:XXX	管养单位
+			mgps:XXX		高德坐标
+		}
+	]
+}
+
+
+10.查询省内路线的所有桥梁信息(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisAllBridge.json
+参数	{
+     regionCode:XXX,          //政区编码
+roadNameOrCode:XXX        //路线名称或编号(选填)
+pageSize:XXX,    //每页条数  选填
+pageNo:XXX        //当前查询的页码 必填
+year:XXX  选填
+lon:XXX   //高德经度
+lat:XXX   //高德纬度
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+      regionCode:XXX   政区编码
+      bridgeCount:XXX,             //桥梁数量
+      pageSize:XXX,                //每页条数
+      pageNo:XXX                  //当前查询的页码数
+	list:[
+		{
+                  roadNumber:XXX 路线编码
+                   Id:XXXX,                    //数据唯一id
+			bridgeName:XXX,		//桥梁名称
+			centerPNO:XXX		       //桥梁位置-中心桩号
+                   regionCode:XXX  政区编码
+                   hotCount:XXX 热度
+            distance:XXX  距离 单位km
+		}
+	]
+}
+
+
+
+
+11.查询所有服务区(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/statisAllServiceArea.json
+参数	{
+regionCode:XXX,        //政区编码(必填)
+roadNumber:XXX        //路线编码(必填)
+lon:XXX   //高德经度
+lat:XXX   //高德纬度
+year:XXX 年份 选填  默认取最新
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     regionCode:XXX  政区编码
+	list:[
+		{
+			provinceName:XXX   省份
+              roadNumber:XXX   路线编号
+              roadName:XXX      路线名称
+              serviceAreaName:XXX  服务区名称
+              serviceContent:XXX   服务内容
+              mgps:XXX    高德坐标
+              centerPNO：XXX  桩号
+             hotcount:XXX 热度
+             distance:XXX 距离
+             level:XXX  一星,二星,三星,四星,五星
+		}
+	]
+}
+
+12.查询所有隧道列表(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/searchAllTunnel.json
+参数	{
+regionCode:XXX,        //政区编码(必填)
+roadNumber:XXX        //路线编码(必填)
+lon:XXX   //高德经度
+lat:XXX   //高德纬度
+year:XXX 年份  选填 不传。取最新年份的隧道
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     regionCode:XXX  政区编码
+	list:[
+		{
+			roadName:XXX   路线名
+              roadNumber:XXX   路线编号
+              name:XXX      隧道名称
+              centerPNO:XXX  中心桩号
+              mgps:XXX   高德坐标
+              regionCode:XXX    政区编码
+              typeName：XXX 隧道类型
+             hotcount:XXX 热度
+             distance:XXX 距离
+		}
+	]
+}
+
+
+
+
+13.查询所有省,市,县-用于普通搜索面板(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchAllAreaData.json
+参数	{
+     无
+}
+返回值	{
+	error:0
+	provinceList:[		//路线集合
+		{
+			name:XX  省份名称
+			code:XX  政区代码
+			list:[     地级市集合
+               {
+                  Name:XXX 名称
+                  code:XXX 政区代码
+                  list:[
+                     {
+                         Name:XXX 名称
+                         Code:XXX 政区代码
+                     }... ...
+                  ]
+               }... ....
+            ]
+		}... ...
+	],
+allData:{    //A-Z的集合
+    {
+       A:[
+          {
+             name:XXX 名称
+             code:XXX 代码
+          }
+       ],
+       B:[
+          {
+             name:XXX名称
+             code:XXX 代码
+          }
+       ]... ...
+    }
+}
+
+}
+
+
+
+
+15.综合高级查询(可用)   禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchComprehensive.json
+所有类型加上user_id参数
+路线接口示例:(
+参数说明:params2=桩号 params3=路面等级 params4=路面类型 params5=是否收费 params6=上下行 organName=管养单位
+
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchComprehensive.json?type=路线&regionCode=370000&date=2015-2015&params1=国道,省道&params3=一级,二级,三级,高速&params4=沥青,水泥&params5=所有&params6=全幅
+)
+桥梁接口示例:(
+参数说明:params2=跨径分类	params3=结构类型	params5=评定等级
+
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchComprehensive.json?
+type=桥梁
+&regionCode=370000
+&date=2014-2014
+&params1=国道,省道
+&params2=特大桥,大桥,中桥,小桥
+&params3=悬索桥,拱式桥,空心板梁,实心板梁
+&params5=一类,二类,三类,四类,五类
+
+)
+服务区接口示例:(
+参数说明:params2=服务区		params3=服务内容
+
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchComprehensive.json?
+type=服务区
+&regionCode=370000
+&date=2015-2015
+&params1=国道,省道
+&params2=一星,二星,三星,四星,五星
+&params3=住宿,吃饭
+
+)
+隧道接口示例:(
+参数说明:params2=跨径分类		params3=评定等级
+
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchComprehensive.json?
+type=隧道
+&regionCode=370000
+&date=2015-2015
+&params1=国道,省道
+&params2=长隧道,短隧道,特长隧道
+&params3=一类,二类,三类,四类
+
+)
+
+收费站接口示例(
+参数说明:params2=位置类型		params3=方向	params4=是否有ETC车道
+
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchComprehensive.json?
+type=收费站
+&regionCode=370000
+&date=2015-2015
+&params1=国道,省道
+&params2=匝道站
+&params3=单向,双向
+params4="是"
+
+)
+
+
+参数	//路线、桥梁、服务区,收费站,隧道
+{
+    pageNO:XXX  页数
+	regionCode:省份,
+	date:日期,
+	type:路线,桥梁,服务区
+	params1:行政等级(国道,省道)	所属路线(国,省道)	所属路线(国,省道)
+	params2:起点桩号-桩点桩号	跨径分类(特大桥,大桥,中桥,小桥) 跨径分类(特大桥,大桥,中桥,小桥)
+	params3:技术等级(高速,一级,二级,三级,四级)	结构类型(梁式桥,拱式桥,悬索桥,斜拉桥)	评定等级(一类,二类,三类,四类,五类)
+	params4:路面类型(沥青,水泥,简易,未铺装)	是否限载(是,否)
+	params5:收费性质(收费,免费)	评定等级(一类,二类,三类,四类,五类)
+	params6:上下行(上行,下行)
+	params7:评定等级(优,良,中,次,差)
+
+}
+返回值	{
+     totalPages:XXX 总页数
+    pageNO:XXX  当前页数
+	error:0
+	list:[{}... ...]	//桥梁list,服务区list
+}
+
+
+16.查询评定路线的所有经纬度信息(已废除)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/searchRoadTraffic.json
+参数	{
+     请参考高级查询,参数同高级查询参数一致.
+}
+返回值	{
+	error:0,
+    totalGPS:[
+		{
+			... ...
+		}
+	]
+}
+
+
+17.查询指定路线的评定经纬度信息(可用) 禁用评定 彩色线
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/searchRoadTrafficByRoadNumber.json(searchRoadTrafficByRoadNumber_result)
+参数	{
+     regionCode:XX   政区编码(必填)
+     roadNumber:XXX  路线编号(必填) 多条路时以,隔开 例:S12,S20
+     year:XXX     年份(选填)
+     params7:XXX  指标项(必填:) 格式:PQI,SCI  以,号隔开
+                  值为PQI,SCI,BCI,TCI,MQI,PCI,RQI,RDI,SRI,PSSI
+}
+返回值	{
+	error:0,
+    list:[
+		{
+			roadNumber:XXX  路线编号
+              roadName:XXX  路线名称
+              title:XXX  XX段 例如:山东段
+              roadJName:XXX 路线简称
+            roadGrade:XXX //国道,国高,省高,省道,县道
+              provinceAbbrName:XXX 省简称
+              list:[
+                  {
+                      startPNO:XXX 起始桩号
+                    endPNO:XXX  结束桩号
+                    level:XXX  等级
+                    color:XXX 颜色值
+                    value:XXX  评定值
+                    mgps:XXX   高德坐坐标
+                    cityName:XXX 当前位置地区名称
+                    roadPType:XXX 路面类型
+                    upordown:XXX 上下行 值为:UP,DO
+                    effectiveWidth:XXX  路面宽度
+                    modifyYear:XXX 修建年度
+                    AADT:XXX  日交通量
+                    saveYear:XXX  数据时间
+                  }... ...
+              ]
+		}... ...
+	]
+}
+
+
+
+
+
+32.查询省份内路线的经纬度信息(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/statisGPS.json
+参数	{
+regionCode:XXX,        //政区编码(必填)
+roadNumber:XXX        //路线编码(必填) 注:格式 S321,S21
+}
+返回值	{
+	error:0,	//0-登录成功 1-登录失败 2-其他异常
+	list:[
+		{
+			roaeNumber:XXX, 	//路线编码
+			list:[
+                {
+                   regionCode:XXX 政区编码
+                   list:[
+                      {
+                         mgps:XXX 坐标
+                         centerPNO:XXX 桩号
+}
+... ...
+]
+}
+... ...
+]
+		}
+         ... ...
+	]
+}
+
+33.获取当前登录用户所能看到的路线编号(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/user/searchRoadByUser.json
+参数	{
+userName:XXX,        //用户名
+}
+返回值	{
+	error:0,	//0-登录成功 1-登录失败 2-其他异常
+	list:[
+		{
+			Road_number:XXX, 	//路线编号
+         }
+         ... ...
+	]
+}
+
+
+
+
+
+
+统计类接口
+
+34.查询技术等级(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/statisTechnical.json
+参数	{
+regionCode:XXX,        //政区编码 必填
+year:XXX                  //年份(选填)
+}
+返回值	{
+	error:0,	//0-登录成功 1-登录失败 2-其他异常
+	list:[
+		{
+			name:XXX,    //名称
+              value:XXX,    //值
+              percent:XXX  //百分比
+		}
+	]
+}
+
+35.查询技术等级-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/staticTechnicalDetail.json
+参数	{
+regionCode:XXX,        //政区编码
+key:XXX         //显示类型 值为:高速公路,一级公路,二级公路,三级公路,四级公路,等外公路 (选填项)
+year:XXX                  //年份(选填)
+pageNO:XXX   必填
+pageSize:XXX  选填
+}
+返回值	{
+	error:0,	//0-登录成功 1-登录失败 2-其他异常
+     pageNO:XXX 当前页数
+totalPages:XXX 总页数
+year:XXX  年份
+	list:[
+		{
+			name:XXX,    //名称
+              techGrade:XXX,    //技术等级
+              number:XXX  //总里程
+              roadNumber:XXX
+              roadName:XXX
+              regionCode:XXX 政区编码
+		}... ...
+	]
+}
+
+
+
+
+36.查询路面类型(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/statisPavement.json
+参数	{
+regionCode:XXX,        //省份名
+year:XXX                 //年份(选填)
+}
+返回值	{
+	error:0,
+	list:[
+		{
+			name:XXX,    //名称
+              value:XXX,    //值
+              percent:XXX  //百分比
+		}
+	]
+}
+
+
+37.查询路面类型-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/staticPavementDetail.json
+参数	{
+regionCode:XXX,        //政区编码
+key:XXX           //类型 值为:沥青路面,水泥路面,简易路面,未铺装路面 (选填)
+year:XXX                 //年份(选填)
+pageNO:XXX  必填
+pageSize:XXX  选填
+}
+返回值	{
+	error:0,
+     pageNO:XXx
+     totalPages:XXX
+    year:XXX  年份
+	list:[
+		{
+			name:XXX,    //名称
+              number:XXX,    //总里程
+              type:XXX  //路面类型
+              roadNumber:XXX
+              roadName:XXX
+              run_regionCode:XXX  政区编码
+		}... ...
+	]
+}
+
+
+
+38.查询行政等级(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/staticAreadmin.json
+参数	{
+regionCode:XXX,        //政区编码
+year:XXX                //年份(选填)
+}
+返回值	{
+	error:0,
+	list:[
+		{
+			name:XXX,    //名称
+              value:XXX,    //值
+              percent:XXX  //百分比
+		}
+	]
+}
+
+39.查询行政等级-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/staticAreadminDetail.json
+参数	{
+regionCode:XXX,        //政区编码
+key:XXX     //字段类型 值为:G,S,Y,C,X (选填)
+year:XXX                //年份(选填)
+pageNO:XXX 必填
+pageSize:XXX 选填
+}
+返回值	{
+	error:0,
+     year:XXX  年份
+	list:[
+		{
+			name:XXX,    //名称
+              number:XXX,    //总里程
+              grade:XXX  //等级
+              roadNumber:XXX
+              roadName:XXX
+              regionCode:XXXX 政区编码
+		}... ...
+	]
+}
+
+40.查询桥梁跨径分类(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisCalucBridge.json
+参数	{
+     regionCode:XXX          //省份名称(必填)
+     year:XXX    //年份(选填)
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+	list1:[
+		{
+			name:XXX,		//名称
+			value:XXX		       //值
+                    percent:XXX   //百分比
+		}
+	]
+	list2:[
+		{
+			name:XXX,		//名称
+			value:XXX		       //值
+		}
+	]
+
+}
+
+41.查询桥梁跨径分类-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisCalucBridgeDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     roadNumber:XXX  //公路编号(选填)
+     year:XXX    //年份(选填)
+     pageNO:XXX  //当前页(必填)
+     pageSize:XXX  //每页显示条数(选填 默认100)
+     order:XXX   //排序规则(选填) 值为:路线-升序,路线-降序,名称-升序,名称-降序,类型-升序,类型-降序,长度-升序,长度-降序
+     key:XXX  //类型字段 值为:特大桥,大桥,中桥,小桥 (选填)
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+      pageNO:XXX
+      pageSize:XXX
+    totalPages:XXX 总页数
+	List:[
+		{
+                   uuid:XXX  桥梁id
+			bridgeLength:XXX,		//长度
+			bridgeName:XXX	//桥梁名称
+                   spanCName:XXX   //桥梁类型
+                  structureName:XXX 跨径分类
+                   roadNumber:XXX   //路线编号
+                   mgps:XXX    //高德坐标
+                   centerPNO:XXX 中心桩号
+                   distance:XXX 距离 单位km
+                   hotCount:XXX 热度
+		}
+	]... ...
+}
+
+
+42.查询桥梁地图聚合-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/searchPolymerization.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     bridgeId:XXX 桥梁id 以逗号隔开 例如: 1,2,3,5
+currentLon：XXX 当前经度
+currentLat:XXX 当前伟度
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+	list:[
+            regionCode:XXX  政区编码
+            mgps:XXX  坐标
+            name:XXX 政区名称
+            list:
+		{
+                   regionCode:XXX  政区编码
+                   bridgeName:XXX 桥梁名称
+			dataYear:XXX,		//数据年份
+			roadNumber:XXX	//路线编号
+                   routeName:XXX 路线名称
+                   bridgeLength:XXX   //长度
+                   mgps:XXX    //高德坐标
+                   centerPNO:XXX 中心桩号
+                   structureName:XXX 跨径分类
+             spanCName:XXX 桥梁类型
+            hotCount:XXX 热度
+            distance:XXX 距离当前距离
+		}... ...
+	]... ...
+}
+
+
+
+
+43.查询桥梁-结构类型(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisStructureBridge.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     year:XXX    //年份(选填)
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+	list:[
+		{
+			name:XXX,		//名称
+			count:XXX		       //数量
+                   mile:XXX  长度 单位km
+                   percent:XX  百分比
+		}
+	]
+}
+
+44.查询桥梁-结构类型详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisStructureBridgeDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     pageSize:XXX   每页显示条数 选填 默认100条
+     pageNO:XXX  当前要显示的页数 必填
+     year:XXX    //年份(必填)
+     key:XXX  类型名称 值为:梁式桥,拱式桥,斜拉桥,悬索桥
+order:XXX 排序规则  值为:长度-升序,长度-降序,路线-升序,路线-降序
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+      pageNO:XXX  当前页数
+      totalPages:XXX 总页数
+	list:[
+		{
+                   id:XXX  桥梁id
+			roadNumber:XXX,		//路线编号
+                   roadName:XXX 路线名称
+			bridgeName:XXX		       //桥梁名称
+                   bridgeLength:XXX  长度 单位m
+                   spanCName:XXX 类型类型
+                   structureName:XX  结构类型
+                   mgps:XXX  高德坐标
+                   centerPNO:XXX 桩号
+                   hotCount:XXX 热度
+                   distance:XXX 距离
+		}
+	]
+}
+
+45.查询桥梁-评定等级(可用) 禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisEvaluateBridge.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     year:XXX    //年份(选填)
+     user_id:XXX
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+      security:XXX   //权限状态 0-有 1-无 2-越级
+	list:[
+		{
+			name:XXX,		//评定等级
+                   count:XXX  数量
+                   value:XXX  里程 单位km
+                   percent:XX  百分比
+		}
+	]
+}
+
+
+46.查询桥梁-评定类型详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/bridge/statisEvaluateBridgeDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     pageSize:XXX   每页显示条数 选填 默认100条
+     pageNO:XXX  当前要显示的页数 必填
+     year:XXX    //年份(必填)
+     key:XXX  类型名称 值为:总里程,一类,二类,三类,四类,五类
+order:XXX 排序规则  值为:长度-升序,长度-降序,路线-升序,路线-降序
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+      pageNO:XXX  当前页数
+      totalPages:XXX 总页数
+	list:[
+		{
+                   id:XXX  桥梁id
+		      bridgeName:XXX,		//桥梁名称
+			roadNumber:XXX		       //路线编号
+                   bridgeLength:XXX  长度 单位m
+                   techGrade:XXX   //等级
+                   spanCName:XXX 桥梁类型
+                   structureName:XXX 跨径分类
+                   mgps:XXX  高德坐标
+                   centerPNO:XX 桩号
+                   hotCount:XXX 热度
+                   distance:XXX 距离
+		}
+	]
+}
+
+
+
+
+47.查询隧道类型(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/statisResultInfo.json
+参数	{
+regionCode:XXX,         //政区编码
+year:XXX                  //年份
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+	list:[
+		{
+			countNumTotal:XXX, 	//隧道总数
+			countNumBigLong:XXX,	//特长隧道数
+			countNumLong:XXX,	     //长隧道数
+			countNumMiddle:XXX,	     //中隧道数
+			countNumShort:XXX,	     //短隧道数
+			mileNumTotal:XXX,	//隧道延米总数
+			mileNumBigLong:XXX,	     //特长隧道延米
+			mileNumLong:XXX,	//长隧道延米
+			mileNumMiddle:XXX,	//中隧道延米
+              mileNumShort:XXX,   //短隧道延米
+		}
+	]
+}
+
+
+48.查询隧道类型-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/statisResultInfoDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     year:XXX    //年份(必填)
+     order:XXX   //升序或降序(选填 默认降序)   0-升序  1-降序 按公路编号
+     roadNumber:XXX  //公路编号(选填)
+     key:XXX     //类型字段 类型:特长隧道、长隧道、中隧道、短隧道
+     pageNO:XX  必填
+     pageSize:XXX 选填
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+totalPages:XXX 总页数
+pageNO:XXX 当前页数
+	list:[
+		{
+			name:XXX, 	//隧道名称
+			typeName:XXX,	//隧道类型
+			gateLength:XXX,	     //隧道长度
+			roadNumber:XXX,	     //路线编号
+              roadName:XXX 路线名称
+              mgps:XXX   //高德坐标
+              centerPNO:XXX 桩号
+              hotCount:XXX 热度
+              distance:XXX 距离
+		}... ...
+	]
+}
+
+
+49.隧道统计-评定等级(可用)  禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/statisEvaluateTunnel.json
+参数	{
+regionCode:XXX,         //政区编码
+year:XXX                  //年份
+user_id:XXX
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     security:XX 权限状态  0-有 1-无 2-越级
+	list:[
+		{
+			name:XXX, 	//名称
+			value:XXX,	//长度 单位km
+              count:XXX 数量
+			percent:XXX,	     //百分比
+		}
+	]
+}
+
+
+50.隧道统计-评定等级详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/statisEvaluateTunnelDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     pageSize:XXX   每页显示条数 选填 默认100条
+     pageNO:XXX  当前要显示的页数 必填
+     year:XXX    //年份(必填)
+     key:XXX  类型名称 值为:总里程,一类,二类,三类,四类,五类
+order:XXX 排序规则  值为:长度-升序,长度-降序,路线-升序,路线-降序
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     totalPages:XXX 总页数
+	list:[
+		{
+			name:XXX, 	//隧道名
+			gateLength:XXX,	//长度 单位m
+	    assessmentGrade:XXX,	   //等级名
+              roadNumber:XXX 路线编号
+              mgps:XXX  高德坐标
+              regionCode:XXX  政区编码
+              centerPNO:XXX 桩号
+              hotCount:XXX 热情
+              distance:XXX 距离
+		}
+	]
+}
+
+
+51.查询隧道地图聚合-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/tunnel/searchPolymerization.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     tunnelId:XXX 隧道id 以逗号隔开 例如: 1,2,3,5
+currentLon：XXX 当前经度
+currentLat:XXX 当前伟度
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+	list:[
+            regionCode:XXX  政区编码
+            mgps:XXX  坐标
+            name:XXX 政区名称
+            count:XXX 数量
+            list:
+		{
+                   regionCode:XXX  政区编码
+                   name:XXX 隧道名称
+                   gateLength:XXX 隧道长度
+			centerPNO:XXX,		//桩号
+			roadNumber:XXX	//路线编号
+                   roadName:XXX 路线名称
+                   techGrade:XXX   //技术等级
+                   typeName:XXX    //隧道类型
+                   responsibleName:XXX 管养单位
+                   assessmentGrade:XXX 技术等级
+            hotCount:XXX 热度
+            distance:XXX 距离当前距离
+		}... ...
+	]... ...
+}
+
+
+
+52.查询路况等级(可用) 禁用 禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/searchTraffic.json
+参数	{
+     regionCode:XXX          //省份名称(必填)
+     year:XXX    //年份(选填)
+     user_id:XXX
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     security:XXX 权限状态(0-有 1-否 2-越级查看)
+	list:[
+		{
+			name:XXX, 	//指标名称
+			label:XXX,	//指标中文名称
+			value:XXX,	     //指数值
+			grade:XXX,	     //等级
+              color:XXX    //颜色值
+		}... ...
+	]
+}
+
+
+53.查询路况等级-详情(可用)  禁用  禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/searchTrafficDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     year:XXX    //年份(选填)
+     pageNO:XXX 必填
+     pageSize:XXX 选填
+     type:XXX     //指标类型(必填) 值为:MQI,PQI,SCI,BCI,TCI,PCI,RQI,RDI,SRI,PSSI
+     user_id:XXX
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+     type:XXX
+     totalPages:XXX 总页数
+pageNO:XXX 当前页数
+security:XXX 权限状态(0-有 1-否 2-越级)
+	list:[
+		{
+			roadName:XXX, 	//路线名称
+			roadNumber:XXX,	//路线编号
+			mile:XXX,	     //里程数
+			value:XXX,	     //指数值
+              color:XXX    //颜色值
+              run_regionCode:XXX 政区编码
+		}... ...
+	]
+}
+
+
+54.服务区统计-服务类型(可用) 禁用
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/searchStatisType.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     year:XXX    //年份(选填)
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+	list:[
+		{
+			name:XXX, 	//类型名称
+			label:XXX,	 //个数
+			percent:XXX,	     //百分比
+		}... ...
+	]
+}
+
+55.服务区统计-服务类型详情(可用) 禁用
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/searchStatisTypeDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     pageSize:XXX   每页显示条数 选填 默认100条
+     pageNO:XXX  当前要显示的页数 必填
+     year:XXX    //年份(必填)
+     key:XXX  类型名称 值为: 停车、公厕、汽修、商超、餐饮、住宿、加油、加油（97号）、WIFI、充电桩、ATM机、咖啡厅
+order:XXX 排序规则  值为:路线-升序,路线-降序
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+    totalPages:XXX 总页数
+	list:[
+		{
+	    serviceContent:XXX, 	//服务内容
+	    serviceAreaName:XXX,	 //服务区名称
+             roadNumber:XXX,	     //路线编号
+              roadName:XXX 路线名称
+              mgps:XXX  高德坐标
+            centerPNO:XXX 桩号
+            distance:XXX 距离
+             hotCount:XXX 热度
+		}... ...
+	]
+}
+
+56.服务区统计-服务星级(可用) 禁用
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/searchLevelData.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     year:XXX    //年份(必填)
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+	list:[
+		{
+			name:XXX, 	//星级名称
+			value:XXX,	 //个数
+			percent:XXX,	     //百分比
+		}... ...
+	]
+}
+
+
+57.服务区统计-服务星级详情(可用) 禁用
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/searchLevelDataDetail.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     pageSize:XXX   每页显示条数 选填 默认100条
+     pageNO:XXX  当前要显示的页数 必填
+     year:XXX    //年份(必填)
+     key:XXX  值为:所有服务区,一星,二星,三星,四星,五星
+order:XXX 排序规则  值为:路线-升序,路线-降序,星级-升序,星级-降序
+lon:XXX 经度   选填
+    lat:XXX 纬度   选填
+}
+返回值	{
+	error:0,	//0-成功 1-查询失败 2-其他异常
+totalPages:XXX 总页数
+pageNO:XXX 当前页数
+	list:[
+		{
+	    level:XXX, 	//星级
+	    serviceAreaName:XXX,	 //服务区名称
+             roadNumber:XXX,	     //路线编号
+              roadName:XXX 路线名称
+              mgps:XXX  高德坐标
+            centerPNO:XXX 桩号
+            distance:XXX 距离
+             hotCount:XXX 热度
+		}... ...
+	]
+}
+
+
+58.查询服务区地图聚合-详情(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/serviceArea/searchPolymerization.json
+参数	{
+     regionCode:XXX          //政区编码(必填)
+     serviceId:XXX 服务区id 以逗号隔开 例如: 1,2,3,5
+currentLon：XXX 当前经度
+currentLat:XXX 当前伟度
+}
+返回值	{
+	error:0,				 //0-成功 1-查询失败 2-其他异常
+	list:[
+            regionCode:XXX  政区编码
+            mgps:XXX  坐标
+            name:XXX 政区名称
+            count:XXX 数量
+            list:
+		{
+                   run_regionCode:XXX  政区编码
+                   serviceAreaName:XXX 服务区名称
+                   level:XXX 星级
+			pileno:XXX,		//桩号
+			roadNumber:XXX	//路线编号
+                   roadName:XXX 路线名称
+                   serviceareaType:XXX 服务区类型
+                   serviceContent:XXX 服务内容
+            hotCount:XXX 热度
+            distance:XXX 距离当前距离
+		}... ...
+	]... ...
+}
+
+
+
+
+59.查询指定省内所有路线名称(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/road/staticRoadByProvince.json
+参数	{
+provinceName:XXX        //省份名
+}
+返回值	{
+	error:0,
+	list:[
+		{
+			roadName:XXX, 	//路线名称
+			roadNumber:XXX	 //路线编码
+		}
+	]
+}
+
+
+
+
+
+
+
+
+
+
+
+60.查询指定坐标范围内的路线信息(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/findNeighPosition.json
+参数	{
+	regionCode:XXX	政区编码  必填
+	lon:XXX		 //经度   必填
+lat:XXX      //纬度    必填
+}
+返回值	{
+	error:0      //0-成功   1-失败
+list:[
+   {
+      roadName:XXX   //路线名称
+      roadNumber:XXX  //路线编号
+   }
+   ... ...
+]
+}
+
+
+61.查询评定路线中位置最近的路线编号(可用) 禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/searchLatelyRoadNumber.json
+参数	{
+	regionCode:XXX	政区编码  选填
+    roadNumberList:XXX  路线编号 必填,以逗号隔开,例:G20,S318
+	lon:XXX		 //高德经度   必填
+lat:XXX      //高德纬度    必填
+user_id:XXX
+}
+返回值	{
+    security:XXX 权限状态(0-是 1-否 2-越级)
+	error:0      //0-成功   1-失败
+number:XXX  距离值
+roadNumber:XXX 路线编号
+proviceCode:XXX  省份名称
+regionCode:XXX 政区编码
+mgps:XXX  高德坐标
+/*  已移动list属性
+list:[    属性数据
+  {
+     startPointPNO:XXX  起始桩号
+     endPointPNO:XXX   结束桩号
+     cityName:XXX  地区名
+     roadPType:XXX 路面类型
+     upordown:XXX  上下行
+     PQI:XXX
+         SCI:XXX
+         BCI:XXX
+         TCI:XXX
+         MQI:XXX
+         AADT:XXX
+         PCI:XXX
+         RQI:XXX
+         SRI:XXX
+         PSSI:XXX
+         roadCode:XXX 路线编号
+         mgps:XXX  评定段落范围
+         proviceName:XXX  省份名
+         YGDanwei:XXX 管养单位
+  }...
+]
+*/
+}
+
+
+62.查询原始路线中位置最近的路线编号(可用)长按选路  禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/searchRangeDistanceRoadNumber.json
+参数	{
+    isGpsList:XXX   是否返回该路线的坐标集合 值为0或1  0-返回  1-不返回  选填  默认不返回
+	regionCode:XXX	政区编码 必填
+	lon:XXX		 //高德经度   必填
+lat:XXX      //高德纬度    必填
+current_lon:XXX  //当前所在经度 选填
+current_lat:XXX  //当前所在纬度 选填
+user_id:XXX  用户id
+}
+返回值	{
+	error:0
+    distance:XXX  距离值
+roadNumber:XXX 路线编号
+roadName:XXX 路线名称
+roadJName:XXX 路线名称简称
+title:XXX  //XX段.例如”山东段” 无段数据时.为字符串空值
+regionCode:XXX  政区编码
+startPNO:XXX 起始桩号
+endPNO:XXX 终点桩号
+countMile：XXX  总里程 单位km
+year:XXX 年份
+roadGrade:XXX       //国道,国高,省高,省道,县道
+provinceAbbrName:XXX   省简称
+afterCityList:[... ...]    //途径地市
+currentCity:XXX     //当前地区位置名称
+isRoadAssetMent：XXX //是否有评定数据  值为true或false
+isRoadAssetMentList:[“pqi“,“pci“,“rqi“,“rdi“,“sri“,“pssi“] //需要隐藏的选项
+isRoadFrontImg:XXX  是否有前方图像数据 值为true或false
+list:[          //坐标点及附属数据集合
+  {
+     regionCode:XXX  政区编码
+     list:[
+          {
+             mgps:XXX  高德坐标
+             roadNumber:XXX 路线编号
+             responsibleCode:XXX 管养单位
+             cityCode:XXX 当前所在地区位置名称
+             centerPNO:XXX 当前桩号
+           }
+          ... ...
+]
+}
+  ... ...
+]
+}
+
+
+
+63.地图路况指标查询接口(可用) 长按选路 禁用评定
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/searchRoadTrafficByRoadNumber.json
+参数	{
+     regionCode:XX   政区编码(必填)
+     roadNumber:XXX  路线编号(必填)
+     user_id:XXX
+}
+返回值	{
+	error:0,
+     security:XXX 权限状态(0-是 1-否 2-越级)
+    list:[
+		{
+         isRoadAssetMent：XXX //是否有评定数据  值为true或false
+isRoadAssetMentList:[“pqi“,“pci“,“rqi“,“rdi“,“sri“,“pssi“] //需要隐藏的选项
+isRoadFrontImg:XXX  是否有前方图像数据 值为true或false
+			roadNumber:XXX  路线编号
+              roadName:XXX  路线名称
+              title:XXX  XX段 例如:山东段
+              roadJName:XXX 路线简称
+            roadGrade:XXX //国道,国高,省高,省道,县道
+              provinceAbbrName:XXX 省简称
+              list:[
+                  {
+                      startPointPNO:XXX 起始桩号
+                    endPointPNO:XXX  结束桩号
+                    mgps:XXX   高德坐标(注:画rdi线时.只取路面类型为沥青路面,且技术等级为高速公路或一级公路)
+                    cityName:XXX 当前位置地区名称
+                    roadPType:XXX 路面类型
+                    techGrade：XXX 技术等级值为:高速公路,一级公路,二级公路,三级公路... ...
+                    upordown:XXX 上下行
+                    effectiveWidth:XXX  路面宽度
+                    modifyYear:XXX 修建年度
+                    AADT:XXX  日交通量
+                    saveYear:XXX  数据时间
+		pqi_Color:XXX
+		pqi_level:XXX
+		pqi_value:XXX
+		pci_Color:XXX
+		pci_level:XXX
+		pci_value:XXX
+		rqi_Color:XXX
+		rqi_level:XXX
+		rqi_value:XXX
+		rdi_Color:XXX
+		rdi_level:XXX
+		rdi_value:XXX
+		sri_Color:XXX
+		sri_level:XXX
+		sri_value:XXX
+		pssi_Color:XXX
+		pssi_level:XXX
+		pssi_value:XXX
+                  }... ...
+              ]
+		}... ...
+	]
+}
+
+
+
+
+
+
+70.指标显微镜(可用)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/map/getMicroscope.json
+参数	{
+regionCode:XXX   政区编码(选填)
+roadNumber:XXX   路线编号(必填)
+type:XXX  类型(选填) 值为:pqi,sci,bci,tci,mqi,pci,rqi,rdi,sri,pssi其中之一
+}
+返回值	{
+error:0   //成功
+title:XXX         XX段(仅在国道路线时有数据.)
+startcity:XXX  起点名称
+endCity:XXX  终点名称
+year:XXX   数据年份
+indexList:[
+   {
+     name:XXX  指标名称
+     grade:XXX  等级
+     value:XXX  指数
+     color:XXX  颜色
+   }
+   ... ...
+]
+dataList:[
+   {
+          modifyYear:XXX  修建年份
+          Upordown:XXX    上下行
+          cityName:XXX  当前位置
+          roadPType:XXX  路面类型
+          effectiveWidth:XXX  路面宽度
+          bridgeList:[    //桥梁信息
+              {
+                 roadNumber:XXX 路线编号
+                 bridgeName:XXX  桥梁名称
+                 centerPNO:XXX 中心桩号
+              }
+          ]
+          tunnelList:[   //隧道列表
+              {
+                 roadNumber:XXX 编号
+                 tunnelName:XXX  隧道名称
+              }
+          ]
+          serviceList:[   //服务区列表
+              {
+                 roadNumber:XXX 编号
+                 serviceAreaName:XXX  服务区名称
+              }
+          ]
+          gateList:[   //收费站列表
+              {
+                 roadNumber:XXX 编号
+                 gateName:XXX  收费站名称
+              }
+          ]
+          MQI:XXX      指标值
+          mqiColor:XXX  颜色值
+          mqiGrade:XXX  等级
+          PQI:XXX
+          pqiColor:XXx
+          pqiGrade:XXX
+          BCI:XXX
+          bciColor:XXX
+          bciGrade:XXX
+          RQI:XXX
+          rqiColor:XXX
+          rqiGrade:XXX
+          SRI:XXX
+          sriColor:XXX
+          sriGrade:XXX
+          RDI:XXX
+          rdiColor:XXX
+          rdiGrade:XXX
+          PCI:XXX
+          pciColor:XXX
+          pciGrade:XXX
+          SCI:XXX
+          sciColor:XXX
+          sciGrade:XXX
+          TCI:XXX
+          tciColor:XXX
+          tciGrade:XXX
+          PSSI:XXX
+          pssiColor:XXX
+          pssiGrade:XXX
+          AADT:XXX    交通量
+          startPointPNO:XXX  起点桩号
+          endPointPNO:XXX  结束桩号
+          mgps:XXX   评定范围的经纬度集合
+   }... ...
+]
+}
+
+
+
+
+
+
+
+
+小册子
+85.2015年全国公路基本情况综合排名(前端需要修改)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getSiveRank.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			item1  省  份
+            item2  总里程
+            item3   高速公路
+            item4   二级及以上公路-里程
+            item5   二级及以上公路-比例
+            item6   国省干线中二级及以上所占比例
+            item7   等级公路-里程
+            item8   等级公路-比例
+            item9   水泥沥青路面里程
+            item10   水泥、沥青路面铺装率
+            item11   国省干线水泥、沥青路面-里程
+            item12   国省干线水泥、沥青路面-铺装率
+            item13   公路密度-按国土面积
+            item14   公路密度-按人口
+            item15   通达率-乡镇
+            item16   通达率-建制村
+            item17   通畅率-乡镇
+            item18    通畅率-建制村
+            year	     年份
+	   }
+	   ... ...
+	]
+}
+
+
+
+86.2015年全国公路基本情况统计表(按技术等级分)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadTechGrade.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			count_num	  总计
+			high_tech	    高速
+			one_tech	  一级
+			two_tech	   二级
+			three_tech   三级
+			four_tech	    四级
+			deng_tech 	等外
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+87.2015年全国公路基本情况统计表(按路面类型分)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadPType.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			count_num	  总计
+			lq	    沥青
+			sn	  水泥混凝土
+			jy	   简易铺装路面
+			pz   未铺装路面
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+88.2015年全国公路基本情况统计表(按行政等级分)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadRegion.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			count_num	  总计
+			g_road	    国道
+			s_road	  省道
+			x_road	   县道
+			xx_road   乡道
+            c_road   村道
+            z_road   专用公路
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+
+89.2015年全国公路桥梁基本情况统计表
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadBridge.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			count_num	  总计-座
+			count_mile	    总计-延米
+			yong_num	  永久性桥梁-座
+			yong_mile	   永久性桥梁-延米
+			da_num   特大桥-座
+            da_mile   特大桥-延米
+            hu_num   互通式立交桥-座
+            hu_mile    互通式立交桥-延米
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+90.2015年全国公路四五类桥梁统计表(前端需要修改)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadBridgeType.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			count_num	  总计-座
+			order	    排序
+			count_num1	  合计
+			ll_next	   00年代
+			jl_next   90年代
+            bl_next  80年代
+            wq_next   50-70年代
+            wl_last    50以前或不详
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+91.2015年全国公路隧道、渡口基本情况统计表
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadTunnelInfo.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			count_tunnelnum	  总计-道
+			count_tunnelmile	    总计-延米
+			count_tetunnelnum	  特长隧道-道
+			count_tetunnelmile	   特长隧道-延米
+			count_changenum   长隧道-道
+            count_changemile  长隧道-延米
+            du_num   渡口
+            jd_dunum    机动渡口
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+92.2015年全国公路密度及乡镇通达情况统计表
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getRoadXZCountInfo.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			road_area_num	  以国土面积计算
+			xi_count	    乡镇总数
+			txi_count	  通公路乡镇数量
+			xi_toda	   乡镇通达率
+			xi_tonum   畅通乡镇数量
+            xi_tongchang  乡镇畅通率
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+93.2015年全国建制村通达情况统计表
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAlljzcInfo.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			province_name		省份
+			jz_count	  建制村总数
+			tjz_count	    通公路建制村数量
+			jz_percent	  建制村通达率
+			tjz_percent	   畅通建制村数量
+            jzt_percent 建制村畅通率
+			year      年份
+	   }
+	   ... ...
+	]
+}
+
+
+94.2015年全国公路基本情况排名（一）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRoadBaseInfoRank_item1.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank_num		名次
+			countmile_province	  总里程-省份
+			countmile_mile	    总里程-公里
+			gaomile_pro	  高速公路里程-省份
+			gaomile_mile	   高速公路里程-公里
+            two_pro   二级及以上里程-省份
+            two_mile  二级及以上里程-公里
+            two_percent_pro 二级及以上比例-省份
+            two_percent_num  二级及以上比例-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+95.2015年全国公路基本情况排名（二）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRoadBaseInfoRank_item2.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			gs_pro	  国省干线中二级及以上比例-省份
+			gs_per	    国省干线中二级及以上比例-%
+			dj_pro	  等级公路里程-省份
+			dj_mile	   等级公路里程-公里
+            dj_per_pro   等级公路比例-省份
+            dj_per_num 等级公路比例-%
+            sn_pro 水泥,沥青路面里程-省份
+            sn_mile 水泥,沥青路面里程-公里
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+96.2015年全国公路基本情况排名（三）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRoadBaseInfoRank_item3.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			snp_pro	  水泥,沥青路面铺装率-省份
+			snp_per	   水泥,沥青路面铺装率-%
+			gsg_pro	  国省干线水泥沥青路面铺装率-省份
+			gsg_per	   国省干线水泥沥青路面铺装率-%
+            gtarea_pro   以国土面积计算-省份
+            gtarea_num  以国土面积计算-*
+            ren_pro 以人口计算-省份
+            ren_num 以人口计算-*
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+97.2015年全国公路基本情况排名（四）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRoadBaseInfoRank_item4.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			xz_pro	  乡镇通达率-省份
+			xz_percent	  乡镇通达率-%
+			xct_pro	  乡镇畅通率-省
+			xct_percent	  乡镇畅通率-%
+            jz_pro   建制村通达率-省份
+            jz_percent  建制村通达率-%
+            jzt_pro 建制村通畅率-省份
+            jzt_percnt 建制村通畅率-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+98.2015年东部地区公路基本情况排名（一）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankDong_item1.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			z_pro	总里程-省份
+			z_mile	  总里程-公里
+			g_pro	  高速公路里程-省份
+			g_mile	  高速公路里程-公里
+            t_pro  二级及以上里程-省份
+            t_mile 二级及以上里程-公里
+            tc_pro 二级及以上比例-省份
+            tc_mile 二级及以上比例-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+99.2015年东部地区公路基本情况排名（二）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankDong_item2.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			gs_pro	国省干线中二级及以上比例-省份
+			gs_percent	 国省干线中二级及以上比例-%
+			dj_pro	  等级公路里程-省份
+			dj_mile	  等级公路里程-公里
+            djp_pro  等级公路比例-省份
+            djp_percent 等级公路比例-%
+            sn_pro  水泥,沥青路面里程-省份
+            sn_mile 水泥,沥青路面里程-公里
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+100.2015年东部地区公路基本情况排名（三）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankDong_item3.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			snp_pro	水泥,沥青路面铺装率-省份
+			snp_percent	 水泥,沥青路面铺装率-%
+			gs_pro	  国省干线水泥沥青路面铺装率-省份
+			gs_percent	  国省干线水泥沥青路面铺装率-%
+            guotu_pro  以国土面积计算-省份
+            guotu_num 以国土面积计算-*
+            ren_pro 以人口计算-省份
+            ren_num 以人口计算-*
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+101.2015年东部地区公路基本情况排名（四）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankDong_item4.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			xz_pro	乡镇通达率-省份
+			xz_percent	乡镇通达率-%
+			xzt_pro	  乡镇通畅率-省份
+			xzt_percent	  乡镇通畅率-%
+            jz_pro 建制村通达率-省份
+            jz_percent 建制村通达率-%
+            jzc_pro 建制村通畅率-省份
+            jzc_percent 建制村通畅率-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+102.2015年中部地区公路基本情况排名（一）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankZhong_item1.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			c_pro	总里程-省份
+			c_mile	总里程-公里
+			g_pro	 高速公路里程-省份
+			g_mile	  高速公路里程-公里
+            t_pro 二级及以上里程-省份
+            t_mile 二级及以上里程-公里
+            ty_pro 二级及以上比例-省份
+            ty_percent 二级及以上比例-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+103.2015年中部地区公路基本情况排名（二）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankZhong_item2.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			gs_pro	国省干线二级以上比例-省份
+			gs_percent	国省干线二级以上比例-%
+			dj_pro	 等级公路里程-省份
+			dj_mile	  等级公路里程-公里
+            djb_pro  等级公路比例-省份
+            djb_percent 等级公路比例-%
+            sn_pro 水泥,沥青路面里程-省份
+            sn_mile 水泥,沥青路面里程-公里
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+104.2015年中部地区公路基本情况排名（三）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankZhong_item3.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			snp_pro	 水泥，沥青路面铺装率-省份
+			snp_percent	水泥，沥青路面铺装率-%
+			gs_pro	 国省干线水泥沥青路面铺装率-省份
+			gs_percent	国省干线水泥沥青路面铺装率-%
+            guo_pro 以国土面积计算-省份
+            guo_num 以国土面积计算-*
+            ren_pro 人口计算-省份
+            ren_num 人口计算-*
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+105.2015年中部地区公路基本情况排名（四）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankZhong_item4.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			xz_pro	 乡镇通达率-省份
+			xz_percent	乡镇通达率-%
+			xzt_pro	 乡镇畅通率-省份
+			xzt_percent	乡镇畅通率-%
+            jz_pro 建制村通达率-省份
+            jz_percent 建制村通达率-%
+            jzc_pro 建制村通畅率-省份
+            jzc_percent 建制村通畅率-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+106.2015年西部地区公路基本情况排名（一）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankXi_item1.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			c_pro	 总里程-省份
+			c_mile	总里程-公里
+			g_pro	 高速公路里程-省份
+			g_mile	高速公路里程-公里
+            t_pro 二级及以上里程-省份
+            t_mile 二级及以上里程-公里
+            tc_pro 二级及以上比例-省份
+            tc_percent 二级及以上比例-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+107.2015年西部地区公路基本情况排名（二）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankXi_item2.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			gs_pro	国省干线中二级及以上比例-省份
+			gs_percent	国省干线中二级及以上比例-%
+			dj_pro	 等级公路里程-省份
+			dj_mile	等级公路里程-公里
+            djb_pro 等级公路比例-省份
+            djb_percent 等级公路比例-%
+            sn_pro 水泥,沥青路面里程-省份
+            sn_mile 水泥,沥青路面里程-公里
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+108.2015年西部地区公路基本情况排名（三）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankXi_item3.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			snp_pro	水泥,沥青路面铺装率-省份
+			snp_percent	水泥,沥青路面铺装率-%
+			gs_pro	 国省干线水泥沥青路面铺装率-省份
+			gs_percent	国省干线水泥沥青路面铺装率-%
+            guo_pro 以国土计算-省份
+            guo_num 以国土计算-*
+            ren_pro 以人口计算-省份
+            ren_num 以人口计算-*
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+109.2015年西部地区公路基本情况排名（四）
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllRankXi_item4.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			rank		名次
+			xz_pro	乡镇通达率-省份
+			xz_percent	乡镇通达率-%
+			xzt_pro	 乡镇通畅率-省份
+			xzt_percent	乡镇通畅率-%
+            jz_pro 建制村通达率-省份
+            jz_percent 建制村通达率-%
+            jzt_pro 建制村畅通率-省份
+            jzt_percent 建制村畅通率-%
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+110.最近三十年公路里程统计汇总
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getAllStatisMile.json
+参数	{
+year:XXX  年份 必填项
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			d_year		数据年份
+			c_mile	总里程
+			g_mile	高速
+			y_mile	 一级
+			e_mile	二级
+            sa_mile  三级
+            s_mile 四级
+            d_mile 等外
+            year  年份
+	   }
+	   ... ...
+	]
+}
+
+
+111.建国以来全国公路里程发展趋势图(折线图)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getTrendLineData.json
+参数	{
+
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			datayear		数据年份
+			mile	总里程
+	   }
+	   ... ...
+	]
+}
+
+112.全国高速公路里程发展趋势图(折线图)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getTrendHighLineData.json
+参数	{
+
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			datayear		数据年份
+			mile	总里程
+	   }
+	   ... ...
+	]
+}
+
+
+113.改革开放以来高等级公路里程发展趋势图(折线图)
+URI: http://kingsup.cn:8769/OpenAPI/iroad-service-gd/api/statistic/book/getTrendReformLineData.json
+参数	{
+
+}
+返回值	{
+	error:0      //0-成功   1-失败
+	list:[
+	   {
+			datayear		数据年份
+			g_mile	高速公路
+            y_mile  一级公路
+            e_mile   二级公路
+            ey_mile  二级以上公路
+	   }
+	   ... ...
+	]
+}
+
+
+

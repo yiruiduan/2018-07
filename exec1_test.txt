@@ -1,0 +1,696 @@
+-rwxr-xr-x. 1 root root       11K Dec  1  2015 abrt-auto-reporting
+-rwxr-xr-x. 1 root root       32K Dec  1  2015 abrt-configuration
+-rwxr-xr-x. 1 root root       28K Dec  1  2015 abrtd
+-rwxr-xr-x. 1 root root       32K Dec  1  2015 abrt-dbus
+-rwxr-xr-x. 1 root root      1.4K Dec  1  2015 abrt-harvest-pstoreoops
+-rwxr-xr-x. 1 root root      8.8K Dec  1  2015 abrt-harvest-vmcore
+-rwxr-xr-x. 1 root root      2.9K Dec  1  2015 abrt-install-ccpp-hook
+-rwxr-xr-x. 1 root root       28K Dec  1  2015 abrt-server
+lrwxrwxrwx. 1 root root        10 Jun  1  2017 accept -> cupsaccept
+-rwxr-xr-x. 1 root root       12K Jun 10  2014 accessdb
+-rwxr-xr-x. 1 root root       12K Mar  6  2015 accton
+-rwxr-xr-x. 1 root root      124K Jun 10  2014 adcli
+-rwxr-xr-x. 1 root root      3.1K Oct  4  2013 addgnupghome
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 addpart
+lrwxrwxrwx. 1 root root         7 Jun  1  2017 adduser -> useradd
+-rwxr-xr-x. 1 root root       36K Nov 20  2015 agetty
+-rwxr-xr-x. 1 root root       95K Mar  6  2015 alsactl
+-rwxr-xr-x. 1 root root       28K Mar  6  2015 alsa-info
+lrwxrwxrwx. 1 root root         9 Jun  1  2017 alsa-info.sh -> alsa-info
+-rwxr-xr-x  1 root root       28K Jun 29  2017 alternatives
+-rwxr-xr-x. 1 root root       50K Dec  8  2015 anaconda
+-rwxr-xr-x. 1 root root       36K Jul 27  2015 anacron
+-rwxr-xr-x  1 root root      4.2K Oct 20  2017 apachectl
+-rwxr-xr-x. 1 root root      2.3K Oct  4  2013 applygnupgdefaults
+-rwxr-xr-x. 1 root root       64K Jun 10  2014 arp
+-rwxr-xr-x  1 root root       45K Nov  6  2016 arpd
+-rwxr-xr-x. 1 root root       24K Nov 21  2015 arping
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 atd
+-rwxr-xr-x. 1 root root        67 Nov 20  2015 atrun
+-rwxr-x---  1 root root       40K Aug  5  2017 audispd
+-rwxr-xr-x  1 root root       40K Aug  5  2017 auditctl
+-rwxr-xr-x  1 root root      118K Aug  5  2017 auditd
+-rwxr-x---  1 root root      3.8K Aug  5  2017 augenrules
+-rwxr-xr-x  1 root root      102K Aug  5  2017 aureport
+-rwxr-xr-x  1 root root      106K Aug  5  2017 ausearch
+lrwxrwxrwx. 1 root root        35 Jun  1  2017 authconfig -> /usr/share/authconfig/authconfig.py
+lrwxrwxrwx. 1 root root        39 Jun  1  2017 authconfig-tui -> /usr/share/authconfig/authconfig-tui.py
+-rwxr-xr-x. 1 root root      290K Nov 20  2015 automount
+-rwxr-x---  1 root root       16K Aug  5  2017 autrace
+-rwxr-xr-x. 1 root root       40K Nov 20  2015 avahi-autoipd
+-rwxr-xr-x  1 root root       12K Aug  3  2017 avcstat
+-rwxr-xr-x. 1 root root       28K Nov  6  2016 badblocks
+-rwxr-xr-x. 1 root root       17K Nov 20  2015 biosdecode
+-rwxr-xr-x. 1 root root       37K Nov 20  2015 biosdevname
+-r-xr-xr-x  1 root root       14K Aug  5  2017 blkdeactivate
+-rwxr-xr-x. 1 root root       20K Nov 20  2015 blkdiscard
+-rwxr-xr-x. 1 root root       74K Nov 20  2015 blkid
+-rwxr-xr-x  1 root root       28K Aug  8  2017 blkmapd
+-rwxr-xr-x. 1 root root       33K Nov 20  2015 blockdev
+-rwxr-xr-x. 1 root root       33K Jun 10  2014 brctl
+-rwxr-xr-x  1 root root       61K Nov  6  2016 bridge
+-rwxr-xr-x. 1 root root      553K Nov 20  2015 btrfs
+lrwxrwxrwx. 1 root root         5 Jun  1  2017 btrfsck -> btrfs
+-rwxr-xr-x. 1 root root      293K Nov 20  2015 btrfs-convert
+-rwxr-xr-x. 1 root root      265K Nov 20  2015 btrfs-debug-tree
+-rwxr-xr-x. 1 root root      261K Nov 20  2015 btrfs-find-root
+-rwxr-xr-x. 1 root root      289K Nov 20  2015 btrfs-image
+-rwxr-xr-x. 1 root root      261K Nov 20  2015 btrfs-map-logical
+-rwxr-xr-x. 1 root root      261K Nov 20  2015 btrfs-select-super
+-rwxr-xr-x. 1 root root      265K Nov 20  2015 btrfs-show-super
+-rwxr-xr-x. 1 root root      261K Nov 20  2015 btrfstune
+-rwxr-xr-x. 1 root root      261K Nov 20  2015 btrfs-zero-log
+-rwx------  1 root root      837K Dec  1  2017 build-locale-archive
+-rwxr-xr-x. 1 root root       644 Nov 20  2015 cacertdir_rehash
+lrwxrwxrwx  1 root root        11 Jan 12  2018 cache_check -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 cache_dump -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 cache_metadata_size -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 cache_repair -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 cache_restore -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 cache_writeback -> pdata_tools
+-rwxr-xr-x  1 root root       20K Aug  3  2017 capsh
+-rwxr-xr-x  1 root root       33K Nov  6  2016 cbq
+-rwxr-xr-x. 1 root root      478K Nov 21  2015 certmonger
+-rwxr-xr-x. 1 root root       68K Nov 20  2015 cfdisk
+-rwxr-xr-x. 1 root root       16K Mar  6  2015 cgclear
+-rwxr-xr-x. 1 root root       16K Mar  6  2015 cgconfigparser
+-rwxr-xr-x. 1 root root       28K Jun 10  2014 cgdcbxd
+-rwxr-xr-x. 1 root root      173K Mar  6  2015 cgdisk
+-rwxr-xr-x. 1 root root       32K Mar  6  2015 cgrulesengd
+-rwxr-xr-x. 1 root root       28K Jun 10  2014 chat
+-rwxr-xr-x. 1 root root       24K Nov 20  2015 chcpu
+-rwxr-xr-x  1 root root       41K Jun 29  2017 chkconfig
+-rwxr-xr-x. 1 root root       52K Mar  6  2015 chpasswd
+-rwxr-xr-x. 1 root root      210K Nov 24  2015 chronyd
+-rwxr-xr-x. 1 root root       33K Nov 20  2015 chroot
+-rwxr-xr-x. 1 root root       16K Mar  6  2015 cifs.idmap
+-rwxr-xr-x. 1 root root       32K Mar  6  2015 cifs.upcall
+lrwxrwxrwx. 1 root root         7 Jun  1  2017 clock -> hwclock
+-rwxr-xr-x. 1 root root       20K Nov 21  2015 clockdiff
+-rwxr-xr-x  1 root root      211K Nov 28  2017 collectd
+-rwxr-xr-x  1 root root       15K Nov 28  2017 collectdmon
+-rwxr-xr-x  1 root root      7.0K Aug  4  2017 consoletype
+-rwxr-xr-x. 1 root root       71K Jun 10  2014 convertquota
+-rwxr-xr-x. 1 root root      7.1K Jun 10  2014 cracklib-check
+-rwxr-xr-x  1 root root       246 Jun 11  2014 cracklib-format
+-rwxr-xr-x. 1 root root       12K Jun 10  2014 cracklib-packer
+-rwxr-xr-x. 1 root root      7.1K Jun 10  2014 cracklib-unpacker
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 crda
+-rwxr-xr-x  1 root root       990 Jun 11  2014 create-cracklib-dict
+-rwxr-xr-x. 1 root root       69K Jul 27  2015 crond
+-rwxr-xr-x  1 root root       21K Jan 24  2014 cronolog
+-rwxr-xr-x. 1 root root       60K Nov 21  2015 cryptsetup
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 ctrlaltdel
+lrwxrwxrwx  1 root root         6 Aug 24  2017 ctstat -> lnstat
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 cupsaccept
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 cupsaddsmb
+-rwxr-xr-x. 1 root root       60K Nov 20  2015 cups-browsed
+-rwxr-xr-x. 1 root root       15K Nov 20  2015 cupsctl
+-rwxr-xr-x. 1 root root      424K Nov 20  2015 cupsd
+lrwxrwxrwx. 1 root root        10 Jun  1  2017 cupsdisable -> cupsaccept
+lrwxrwxrwx. 1 root root        10 Jun  1  2017 cupsenable -> cupsaccept
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 cupsfilter
+-rwxr-xr-x. 1 root root       57K Sep 17  2014 cups-genppd.5.2
+-rwxr-xr-x. 1 root root       35K Sep 17  2014 cups-genppdupdate
+lrwxrwxrwx. 1 root root        10 Jun  1  2017 cupsreject -> cupsaccept
+-rwxr-xr-x  1 root root      1.2K Feb 28  2014 dbeg1-ftpd.pl
+-rwxr-xr-x. 1 root root       61K Nov 20  2015 dcbtool
+-rwxr-xr-x. 1 root root      121K Nov  6  2016 debugfs
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 delpart
+lrwxrwxrwx. 1 root root        11 Jun  1  2017 depmod -> ../bin/kmod
+-rwxr-xr-x  1 root root       36K Nov  6  2016 devlink
+-rwxr-xr-x. 1 root root      415K Nov 20  2015 dhclient
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 dhclient-script
+-rwxr-xr-x. 2 root root       12K Nov 21  2015 dm_dso_reg_tool
+-r-xr-xr-x  1 root root       40K Aug  5  2017 dmeventd
+-rwxr-xr-x. 2 root root       12K Nov 21  2015 dmevent_tool
+-r-xr-xr-x  1 root root       20K Aug  5  2017 dmfilemapd
+-rwxr-xr-x. 1 root root       85K Nov 20  2015 dmidecode
+-rwxr-xr-x. 1 root root       23K Nov 21  2015 dmraid
+lrwxrwxrwx. 1 root root         6 Jun  1  2017 dmraid.static -> dmraid
+-r-xr-xr-x  1 root root      146K Aug  5  2017 dmsetup
+lrwxrwxrwx  1 root root         7 Jan 12  2018 dmstats -> dmsetup
+-rwxr-xr-x. 1 root root      288K Aug  6  2015 dnsmasq
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 dosfsck -> fsck.fat
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 dosfslabel -> fatlabel
+lrwxrwxrwx  1 root root        13 Jan 12  2018 dracut -> ../bin/dracut
+-rwxr-xr-x. 1 root root       20K Mar  6  2015 dump-acct
+-rwxr-xr-x. 1 root root       24K Nov  6  2016 dumpe2fs
+-rwxr-xr-x. 1 root root       16K Mar  6  2015 dump-utmp
+-rwxr-xr-x. 1 root root       12K Nov  6  2016 e2freefrag
+-rwxr-xr-x. 4 root root      251K Nov  6  2016 e2fsck
+-rwxr-xr-x. 1 root root       32K Nov  6  2016 e2image
+-rwxr-xr-x. 2 root root       70K Nov  6  2016 e2label
+-rwxr-xr-x. 1 root root       12K Nov  6  2016 e2undo
+-rwxr-xr-x. 1 root root       28K Nov  6  2016 e4defrag
+-rwxr-xr-x. 1 root root      1.3M Jun 16  2015 eapol_test
+-rwxr-xr-x. 1 root root      6.9K Jun 10  2014 ebtables
+-rwxr-xr-x. 1 root root       11K Jun 10  2014 ebtables-restore
+-rwxr-xr-x. 1 root root       851 Jun 10  2014 ebtables-save
+-rwxr-xr-x. 1 root root       80K Jun 10  2014 edquota
+-rwxr-xr-x. 1 root root       54K Nov 21  2015 efibootmgr
+lrwxrwxrwx  1 root root        11 Jan 12  2018 era_check -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 era_dump -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 era_invalidate -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 era_restore -> pdata_tools
+-rwxr-xr-x. 1 root root       74K Jun 10  2014 ether-wake
+-rwxr-xr-x. 1 root root      258K Mar  6  2015 ethtool
+-rwxr-xr-x  1 root root       77K Aug  8  2017 exportfs
+-rwxr-xr-x  1 root root       56K Nov  6  2016 extlinux
+-rwxr-xr-x  1 root root       16K Nov  6  2016 faillock
+-rwxr-xr-x. 1 root root       53K Jun 10  2014 fatlabel
+-rwxr-xr-x  1 root root       11K Oct 20  2017 fcgistarter
+-rwxr-xr-x. 1 root root       16K Nov 21  2015 fcnsq
+-rwxr-xr-x. 1 root root       45K Nov 21  2015 fcoeadm
+-rwxr-xr-x. 1 root root       70K Nov 21  2015 fcoemon
+-rwxr-xr-x. 1 root root       28K Nov 21  2015 fcping
+-rwxr-xr-x. 1 root root       24K Nov 21  2015 fcrls
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 fdformat
+-rwxr-xr-x. 1 root root      179K Nov 20  2015 fdisk
+-rwxr-xr-x. 1 root root       16K Nov  6  2016 filefrag
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 findfs
+-rwxr-xr-x. 1 root root       41K Nov 21  2015 fipvlan
+-rwxr-xr-x. 1 root root      5.3K Nov 20  2015 firewalld
+-rwxr-xr-x. 1 root root      6.5K Nov 21  2015 firstboot
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 fixfiles
+-rwxr-xr-x. 1 root root       62K Mar  6  2015 fixparts
+-rwsr-xr-x. 1 root root       33K Oct 26  2014 fping
+-rwsr-xr-x. 1 root root       33K Oct 26  2014 fping6
+-r-xr-xr-x  1 root root       20K Aug  5  2017 fsadm
+-rwxr-xr-x. 1 root root       33K Nov 20  2015 fsck
+-rwxr-xr-x. 1 root root      1.2K Nov 20  2015 fsck.btrfs
+-rwxr-xr-x. 1 root root       20K Nov 20  2015 fsck.cramfs
+-rwxr-xr-x. 4 root root      251K Nov  6  2016 fsck.ext2
+-rwxr-xr-x. 4 root root      251K Nov  6  2016 fsck.ext3
+-rwxr-xr-x. 4 root root      251K Nov  6  2016 fsck.ext4
+-rwxr-xr-x. 1 root root       57K Jun 10  2014 fsck.fat
+-rwxr-xr-x. 1 root root       74K Nov 20  2015 fsck.minix
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 fsck.msdos -> fsck.fat
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 fsck.vfat -> fsck.fat
+-rwxr-xr-x. 1 root root       433 Nov 20  2015 fsck.xfs
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 fsfreeze
+-rwxr-xr-x. 1 root root       37K Nov 20  2015 fstrim
+-rwxr-xr-x  1 root root      1.2K Feb 28  2014 ftpd.pl
+-rwxr-xr-x. 1 root root       37K Nov 20  2015 fuser
+-rwxr-xr-x. 1 root root       20K Jun 10  2014 fxload
+-rwxr-xr-x. 1 root root      181K Mar  6  2015 gdisk
+-rwxr-xr-x. 1 root root      439K Nov 20  2015 gdm
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 genhomedircon -> semodule
+-rwxr-xr-x  1 root root      7.0K Aug  4  2017 genhostid
+-rwxr-xr-x  1 root root       49K Nov  6  2016 genl
+-rwxr-xr-x  2 root root       12K Aug  4  2017 genl-ctrl-list
+-rwxr-xr-x  1 root root       12K Aug  3  2017 getcap
+-rwxr-xr-x  1 root root      7.0K Aug  3  2017 getenforce
+-rwxr-xr-x  1 root root       12K Aug  3  2017 getpcaps
+-rwxr-xr-x  1 root root       12K Aug  3  2017 getsebool
+-rwx------  1 root root      685K Dec  1  2017 glibc_post_upgrade.i686
+-rwx------  1 root root      752K Dec  1  2017 glibc_post_upgrade.x86_64
+-rwxr-xr-x  1 root root      457K Aug 10  2017 gluster
+lrwxrwxrwx  1 root root        10 Jan 12  2018 glusterfs -> glusterfsd
+-rwxr-xr-x  1 root root       96K Aug 10  2017 glusterfsd
+-rwxr-xr-x  1 root root       14M Nov  1  2017 grafana-cli
+-rwxr-xr-x  1 root root       29M Nov  1  2017 grafana-server
+-rwxr-x---. 1 root root       60K Mar  6  2015 groupadd
+-rwxr-x---. 1 root root       56K Mar  6  2015 groupdel
+-rwxr-x---. 1 root root       56K Mar  6  2015 groupmems
+-rwxr-x---. 1 root root       75K Mar  6  2015 groupmod
+-rwxr-xr-x. 1 root root       56K Mar  6  2015 grpck
+-rwxr-xr-x. 1 root root       52K Mar  6  2015 grpconv
+-rwxr-xr-x. 1 root root       52K Mar  6  2015 grpunconv
+-rwxr-xr-x. 1 root root      1.1M Nov 24  2015 grub2-bios-setup
+-rwxr-xr-x. 1 root root      1.3M Nov 24  2015 grub2-install
+-rwxr-xr-x. 1 root root      1.1M Nov 24  2015 grub2-macbless
+-rwxr-xr-x. 1 root root      7.9K Nov 24  2015 grub2-mkconfig
+-rwxr-xr-x. 1 root root      222K Nov 24  2015 grub2-ofpathname
+-rwxr-xr-x. 1 root root      1.1M Nov 24  2015 grub2-probe
+-rwxr-xr-x. 1 root root      4.0K Nov 24  2015 grub2-reboot
+-rwxr-xr-x. 1 root root      259K Nov 24  2015 grub2-rpm-sort
+-rwxr-xr-x. 1 root root      3.5K Nov 24  2015 grub2-set-default
+-rwxr-xr-x. 1 root root      2.7K Nov 24  2015 grub2-setpassword
+-rwxr-xr-x. 1 root root      1.1M Nov 24  2015 grub2-sparc64-setup
+-rwxr-xr-x. 1 root root       68K Nov 21  2015 grubby
+-rwxr-xr-x  1 root root      131K Aug  4  2017 gssproxy
+-rwxr-xr-x  1 root root       24K Aug  4  2017 gss-server
+lrwxrwxrwx  1 root root        16 Jan 12  2018 halt -> ../bin/systemctl
+-rwxr-xr-x. 1 root root      1.9K Dec  8  2015 handle-sshpw
+-rwxr-xr-x. 1 root root       16K Jun 10  2014 hardlink
+-rwxr-xr-x  1 root root       32K Oct 20  2017 htcacheclean
+-rwxr-xr-x  1 root root      512K Oct 20  2017 httpd
+-rwxr-xr-x. 1 root root       45K Nov 20  2015 hwclock
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 hypervfcopyd
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 hypervkvpd
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 hypervvssd
+-rwxr-xr-x  2 root root       23K Dec  1  2017 iconvconfig
+-rwxr-xr-x  1 root root       22K Dec  1  2017 iconvconfig.i686
+-rwxr-xr-x  2 root root       23K Dec  1  2017 iconvconfig.x86_64
+-rwxr-xr-x  1 root root      3.0K Nov  6  2016 ifcfg
+-rwxr-xr-x. 1 root root       81K Jun 10  2014 ifconfig
+-rwxr-xr-x  1 root root      1.7K May  3  2017 ifdown
+-rwxr-xr-x. 1 root root       20K Nov 21  2015 ifenslave
+-rwxr-xr-x  1 root root       33K Nov  6  2016 ifstat
+-rwxr-xr-x  1 root root       62K Mar 22  2017 iftop
+-rwxr-xr-x  1 root root      4.9K May  3  2017 ifup
+lrwxrwxrwx  1 root root        22 Jan 12  2018 init -> ../lib/systemd/systemd
+-rwxr-xr-x  1 root root      1.2K Feb 28  2014 inmem-ftpd.pl
+lrwxrwxrwx. 1 root root        11 Jun  1  2017 insmod -> ../bin/kmod
+-rwxr-xr-x. 1 root root      111K Jun 10  2014 install-info
+-rwxr-xr-x. 1 root root      2.7K Nov 21  2015 installkernel
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 intel-microcode2ucode
+-rwxr-xr-x  1 root root      361K Nov  6  2016 ip
+lrwxrwxrwx. 1 root root        13 Jun  1  2017 ip6tables -> xtables-multi
+lrwxrwxrwx. 1 root root        13 Jun  1  2017 ip6tables-restore -> xtables-multi
+lrwxrwxrwx. 1 root root        13 Jun  1  2017 ip6tables-save -> xtables-multi
+-rwxr-xr-x. 1 root root       864 Nov 23  2015 ipa-certupdate
+-rwxr-xr-x. 1 root root       18K Nov 23  2015 ipa-client-automount
+-rwxr-xr-x. 1 root root      122K Nov 23  2015 ipa-client-install
+-rwxr-xr-x. 1 root root      114K Nov 23  2015 ipa-getkeytab
+-rwxr-xr-x. 1 root root       32K Nov 23  2015 ipa-join
+-rwxr-xr-x. 1 root root       15K Nov 23  2015 ipa-rmkeytab
+-rwxr-xr-x. 1 root root       20K Jun 10  2014 ipmaddr
+-rwxr-xr-x. 1 root root      378K Nov 21  2015 iprconfig
+-rwx------. 1 root root      128K Nov 21  2015 iprdbg
+-rwxr-xr-x. 1 root root      116K Nov 21  2015 iprdump
+-rwxr-xr-x. 1 root root      116K Nov 21  2015 iprinit
+-rwxr-xr-x. 1 root root      1.5K Nov 21  2015 iprsos
+-rwxr-xr-x. 1 root root      116K Nov 21  2015 iprupdate
+lrwxrwxrwx. 1 root root        13 Jun  1  2017 iptables -> xtables-multi
+lrwxrwxrwx. 1 root root        13 Jun  1  2017 iptables-restore -> xtables-multi
+lrwxrwxrwx. 1 root root        13 Jun  1  2017 iptables-save -> xtables-multi
+-rwxr-xr-x. 1 root root       24K Jun 10  2014 iptunnel
+-rwxr-xr-x. 1 root root       49K Nov 20  2015 irqbalance
+-rwxr-xr-x. 1 root root      795K Nov 20  2015 iscsiadm
+-rwxr-xr-x. 1 root root      820K Nov 20  2015 iscsid
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 iscsi-iname
+-rwxr-xr-x. 1 root root      365K Nov 20  2015 iscsistart
+-rwxr-xr-x. 1 root root      158K Nov 20  2015 iscsiuio
+-rwxr-xr-x. 1 root root      133K Aug  7  2014 iw
+-rwxr-xr-x. 1 root root       12K Nov 21  2015 kdump
+-rwxr-xr-x. 1 root root      166K Nov 21  2015 kexec
+-rwxr-xr-x. 1 root root       20K Jun 10  2014 key.dns_resolver
+-rwxr-xr-x. 1 root root       24K Jun 10  2014 killall5
+-rwxr-xr-x. 1 root root       37K Nov 20  2015 kpartx
+-rwxr-xr-x. 1 root root      9.0K Mar  6  2015 kpatch
+-rwxr-xr-x  1 root root      3.4K Jan  5  2018 ksmtuned
+-rwxr-xr-x. 1 root root       16K Jul 24  2015 lchage
+-rwxr-xr-x. 1 root root       24K Nov 20  2015 ldattach
+-rwxr-xr-x  1 root root      929K Dec  1  2017 ldconfig
+-rwxr-xr-x. 1 root root       54K Nov 20  2015 ledctl
+-rwxr-xr-x. 1 root root       58K Nov 20  2015 ledmon
+-rwxr-xr-x. 1 root root       12K Jul 24  2015 lgroupadd
+-rwxr-xr-x. 1 root root       12K Jul 24  2015 lgroupdel
+-rwxr-xr-x. 1 root root       16K Jul 24  2015 lgroupmod
+-rwxr-xr-x  1 root root      602K Jan  5  2018 libvirtd
+-rwxr-xr-x. 1 root root       16K Jul 24  2015 lid
+-rwxr-xr-x. 1 root root      5.9K Dec  8  2015 liveinst
+-rwxr-xr-x. 1 root root      403K Nov 20  2015 lldpad
+-rwxr-xr-x. 1 root root       96K Nov 20  2015 lldptool
+-rwxr-xr-x. 1 root root       16K Jul 24  2015 lnewusers
+-rwxr-xr-x  1 root root       16K Nov  6  2016 lnstat
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 load_policy
+-rwx--s--x. 1 root lock       11K Jun 10  2014 lockdev
+-rwxr-xr-x. 1 root root       65K Nov 20  2015 logrotate
+-rwxr-xr-x. 1 root root       12K Nov  6  2016 logsave
+-rwxr-xr-x. 1 root root       75K Nov 20  2015 losetup
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 lpadmin
+-rwxr-xr-x. 1 root root       16K Jul 24  2015 lpasswd
+lrwxrwxrwx. 1 root root        27 Jun  1  2017 lpc -> /etc/alternatives/print-lpc
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 lpc.cups
+-rwxr-xr-x. 1 root root       15K Nov 20  2015 lpinfo
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 lpmove
+lrwxrwxrwx. 1 root root        11 Jun  1  2017 lsmod -> ../bin/kmod
+-rwxr-xr-x. 1 root root      1.2M Oct 15 16:15 lsof
+-rwxr-xr-x. 1 root root       70K Jun 10  2014 lspci
+-rwxr-xr-x. 1 root root       16K Jul 24  2015 luseradd
+-rwxr-xr-x. 1 root root       12K Jul 24  2015 luserdel
+-rwxr-xr-x. 1 root root       20K Jul 24  2015 lusermod
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvchange -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvconvert -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvcreate -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvdisplay -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvextend -> lvm
+-r-xr-xr-x  1 root root      2.1M Aug  5  2017 lvm
+-r-xr-xr-x  1 root root       13K Aug  5  2017 lvmconf
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvmconfig -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvmdiskscan -> lvm
+-r-xr-xr-x  1 root root       11K Aug  5  2017 lvmdump
+-r-xr-xr-x  1 root root       68K Aug  5  2017 lvmetad
+-r-xr-xr-x  1 root root       58K Aug  5  2017 lvmpolld
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvmsadc -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvmsar -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvreduce -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvremove -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvrename -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvresize -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvs -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 lvscan -> lvm
+-rwxr-xr-x. 1 root root      316K Nov 21  2015 makedumpfile
+-rwxr-xr-x  1 root root       12K Aug  3  2017 matchpathcon
+-rwxr-xr-x. 1 root root      526K Nov 21  2015 mdadm
+-rwxr-xr-x. 1 root root      290K Nov 21  2015 mdmon
+-rwxr-xr-x. 1 root root       21K Jun 10  2014 mii-diag
+-rwxr-xr-x. 1 root root       20K Jun 10  2014 mii-tool
+lrwxrwxrwx. 1 root root        15 Jun  1  2017 mkdict -> cracklib-format
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 mkdosfs -> mkfs.fat
+-rwxr-xr-x. 1 root root       17K Nov 21  2015 mkdumprd
+-rwxr-xr-x. 4 root root       95K Nov  6  2016 mke2fs
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 mkfs
+-rwxr-xr-x. 1 root root      281K Nov 20  2015 mkfs.btrfs
+-rwxr-xr-x. 1 root root       32K Nov 20  2015 mkfs.cramfs
+-rwxr-xr-x. 4 root root       95K Nov  6  2016 mkfs.ext2
+-rwxr-xr-x. 4 root root       95K Nov  6  2016 mkfs.ext3
+-rwxr-xr-x. 4 root root       95K Nov  6  2016 mkfs.ext4
+-rwxr-xr-x. 1 root root       28K Jun 10  2014 mkfs.fat
+-rwxr-xr-x. 1 root root       33K Nov 20  2015 mkfs.minix
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 mkfs.msdos -> mkfs.fat
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 mkfs.vfat -> mkfs.fat
+-rwxr-xr-x. 1 root root      344K Nov 20  2015 mkfs.xfs
+-rwxr-xr-x  1 root root       20K Nov  6  2016 mkhomedir_helper
+-rwxr-xr-x. 1 root root       12K Nov  6  2016 mklost+found
+-rwxr-xr-x  1 root root      128K Mar  6  2015 mksquashfs
+-rwxr-xr-x. 1 root root       66K Nov 20  2015 mkswap
+-rwxr-xr-x. 1 root root     1023K Nov 21  2015 ModemManager
+lrwxrwxrwx. 1 root root        11 Jun  1  2017 modinfo -> ../bin/kmod
+lrwxrwxrwx. 1 root root        11 Jun  1  2017 modprobe -> ../bin/kmod
+-rwxr-xr-x. 1 root root       41K Mar  6  2015 mount.cifs
+-rwxr-xr-x  1 root root       12K Aug  4  2017 mount.fuse
+-rwxr-xr-x  1 root root       19K Aug 10  2017 mount.glusterfs
+lrwxrwxrwx  1 root root        19 Oct 18  2017 mount.lowntfs-3g -> /usr/bin/lowntfs-3g
+-rwsr-xr-x  1 root root      111K Aug  8  2017 mount.nfs
+lrwxrwxrwx  1 root root         9 Oct 19  2017 mount.nfs4 -> mount.nfs
+lrwxrwxrwx  1 root root        13 Oct 18  2017 mount.ntfs -> mount.ntfs-3g
+lrwxrwxrwx  1 root root        16 Oct 18  2017 mount.ntfs-3g -> /usr/bin/ntfs-3g
+lrwxrwxrwx  1 root root        13 Oct 18  2017 mount.ntfs-fuse -> mount.ntfs-3g
+-rwxr-xr-x  1 root root       35K Aug  8  2017 mountstats
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 mpathconf
+-rwxr-xr-x. 1 root root       25K Nov 20  2015 mpathpersist
+-rwxr-xr-x. 1 root root       84K Jun 10  2014 mtr
+-rwxr-xr-x. 1 root root       24K Nov 20  2015 multipath
+-rwxr-xr-x. 1 root root       73K Nov 20  2015 multipathd
+-rwxr-xr-x. 1 root root       16K Jun 10  2014 nameif
+-rwxr-sr-x  1 root root       11K Aug  4  2017 netreport
+-rwxr-xr-x. 1 root root       20K Nov 20  2015 netscsid
+-rwxr-xr-x. 1 root root      1.9M Nov 21  2015 NetworkManager
+-rwxr-xr-x. 1 root root       25K Nov 21  2015 new-kernel-pkg
+-rwxr-xr-x. 1 root root       71K Mar  6  2015 newusers
+-rwxr-xr-x  1 root root       41K Aug  8  2017 nfsdcltrack
+-rwxr-xr-x  1 root root       20K Aug  8  2017 nfsidmap
+-rwxr-xr-x  1 root root       24K Aug  8  2017 nfsiostat
+-rwxr-xr-x  1 root root       30K Aug  8  2017 nfsstat
+-rwxr-xr-x. 1 root root      5.9M Aug 16  2017 nginx.old
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-class-add
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-class-delete
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-classid-lookup
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-class-list
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-cls-add
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-cls-delete
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-cls-list
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-link-list
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-pktloc-lookup
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-qdisc-add
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-qdisc-delete
+-rwxr-xr-x  2 root root       12K Aug  4  2017 nl-qdisc-list
+-rwxr-xr-x. 1 root root      7.0K Nov 20  2015 nologin
+-rwxr-xr-x  1 root root       20K Nov  6  2016 nstat
+-rwxr-xr-x. 1 root root      709K Nov 20  2015 ntpd
+-rwxr-xr-x. 1 root root      108K Nov 20  2015 ntpdate
+-rwxr-xr-x. 1 root root      170K Nov 20  2015 ntpdc
+-rwxr-xr-x. 1 root root      101K Nov 20  2015 ntp-keygen
+-rwxr-xr-x. 1 root root      165K Nov 20  2015 ntpq
+-rwxr-xr-x. 1 root root       74K Nov 20  2015 ntptime
+-rwxr-xr-x  1 root root       37K Jun 29  2017 ntsysv
+-rwxr-xr-x. 1 root root       73K Mar  6  2015 oddjobd
+-rwxr-xr-x  1 root root      2.6K Aug  8  2017 osd_login
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 ownership
+lrwxrwxrwx. 1 root root        15 Jun  1  2017 packer -> cracklib-packer
+-rwxr-xr-x  1 root root       40K Nov  6  2016 pam_console_apply
+-rwxr-xr-x  1 root root       16K Nov  6  2016 pam_tally2
+-rwsr-xr-x  1 root root       11K Nov  6  2016 pam_timestamp_check
+-rwxr-xr-x. 1 root root       74K Nov 20  2015 parted
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 partprobe
+-rwxr-xr-x. 1 root root       83K Nov 20  2015 partx
+-rwxr-xr-x  1 root root      1.2M Aug  3  2017 pdata_tools
+-rwxr-xr-x. 1 root root      9.0K Feb 20  2013 pethtool
+lrwxrwxrwx. 1 root root        18 Jun  1  2017 pidof -> /usr/sbin/killall5
+-rwxr-xr-x. 1 root root      3.1K Jun 10  2014 pifconfig
+lrwxrwxrwx. 1 root root        12 Jun  1  2017 ping6 -> ../bin/ping6
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 pivot_root
+-rwxr-xr-x. 1 root root       12K Jun 10  2014 plipconfig
+-rwxr-xr-x  1 root root       16K Aug  3  2017 pluginviewer
+-rwxr-xr-x. 1 root root       85K Nov 20  2015 plymouthd
+-rwxr-xr-x. 1 root root      6.3K Nov 20  2015 plymouth-set-default-theme
+lrwxrwxrwx. 1 root root        33 Jun  1  2017 pm-hibernate -> /usr/lib64/pm-utils/bin/pm-action
+-rwxr-xr-x. 1 root root      2.1K Sep 17  2014 pm-powersave
+lrwxrwxrwx. 1 root root        33 Jun  1  2017 pm-suspend -> /usr/lib64/pm-utils/bin/pm-action
+lrwxrwxrwx. 1 root root        33 Jun  1  2017 pm-suspend-hybrid -> /usr/lib64/pm-utils/bin/pm-action
+-rwxr-xr-x. 1 root root      1.5K Sep 17  2014 pm-utils-bugreport-info.sh
+-rwxr-xr-x. 1 root root      254K Jun 10  2014 postalias
+-rwxr-xr-x. 1 root root      137K Jun 10  2014 postcat
+-rwxr-xr-x. 1 root root      364K Jun 10  2014 postconf
+-rwxr-sr-x. 1 root postdrop  214K Jun 10  2014 postdrop
+-rwxr-xr-x. 1 root root      120K Jun 10  2014 postfix
+-rwxr-xr-x. 1 root root      132K Jun 10  2014 postkick
+-rwxr-xr-x. 1 root root      128K Jun 10  2014 postlock
+-rwxr-xr-x. 1 root root      120K Jun 10  2014 postlog
+-rwxr-xr-x. 1 root root      254K Jun 10  2014 postmap
+-rwxr-xr-x. 1 root root      136K Jun 10  2014 postmulti
+-rwxr-sr-x. 1 root postdrop  254K Jun 10  2014 postqueue
+-rwxr-xr-x. 1 root root      140K Jun 10  2014 postsuper
+lrwxrwxrwx  1 root root        16 Jan 12  2018 poweroff -> ../bin/systemctl
+-r-xr-xr-x. 1 root root      373K Jun 10  2014 pppd
+-rwxr-xr-x. 1 root root       53K Jun 10  2014 pppdump
+-r-xr-xr-x. 1 root root       19K Jun 10  2014 pppoe-discovery
+-rwxr-xr-x. 1 root root       15K Jun 10  2014 pppstats
+-rwxr-xr-x  1 root root       24K Aug  4  2017 ppp-watch
+-rwxr-xr-x  1 root root      1.2K Feb 28  2014 proxy-ftpd.pl
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvchange -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvck -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvcreate -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvdisplay -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvmove -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvremove -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvresize -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvs -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 pvscan -> lvm
+-rwxr-xr-x. 1 root root       52K Mar  6  2015 pwck
+-rwxr-xr-x. 1 root root       48K Mar  6  2015 pwconv
+-rwxr-xr-x  1 root root       16K Nov  6  2016 pwhistory_helper
+-rwxr-xr-x. 1 root root       39K Mar  6  2015 pwunconv
+-rwxr-xr-x. 1 root root       71K Jun 10  2014 quot
+-rwxr-xr-x. 1 root root      104K Jun 10  2014 quotacheck
+lrwxrwxrwx. 1 root root         7 Jun  1  2017 quotaoff -> quotaon
+-rwxr-xr-x. 1 root root       76K Jun 10  2014 quotaon
+-rwxr-xr-x. 1 root root       15K Jun 10  2014 quotastats
+-rwxr-xr-x  1 root root       86K Sep  9  2015 radvd
+-rwxr-xr-x  1 root root       24K Sep  9  2015 radvdump
+-rwxr-xr-x. 1 root root      3.8K Sep 18  2015 raid-check
+-rwxr-xr-x. 1 root root       28K Nov 21  2015 rdisc
+-rwxr-xr-x  1 root root       16K Aug  4  2017 rdma-ndd
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 readprofile
+-rwxr-xr-x. 1 root root      139K Nov 21  2015 realm
+lrwxrwxrwx  1 root root        16 Jan 12  2018 reboot -> ../bin/systemctl
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 regdbdump
+lrwxrwxrwx. 1 root root        10 Jun  1  2017 reject -> cupsaccept
+-rwxr-xr-x. 1 root root       72K Jun 10  2014 repquota
+-rwxr-xr-x. 1 root root       20K Jun 10  2014 request-key
+-rwxr-xr-x. 1 root root       49K Nov  6  2016 resize2fs
+-rwxr-xr-x. 1 root root       29K Nov 20  2015 resizepart
+lrwxrwxrwx. 1 root root         8 Jun  1  2017 restorecon -> setfiles
+-rwxr-xr-x. 1 root root       12K Jun 10  2014 rfkill
+lrwxrwxrwx. 1 root root        11 Jun  1  2017 rmmod -> ../bin/kmod
+-rwxr-xr-x. 1 root root       25K Nov 21  2015 rngd
+-rwxr-xr-x  1 root root      1.2K Feb 28  2014 ro-ftpd.pl
+-rwxr-xr-x  1 root root       20K Oct 20  2017 rotatelogs
+-rwxr-xr-x. 1 root root       67K Jun 10  2014 route
+-rwxr-xr-x  1 root root       173 Nov  6  2016 routef
+-rwxr-xr-x  1 root root      1.3K Nov  6  2016 routel
+-rwxr-xr-x  1 root root       61K Aug  4  2017 rpcbind
+-rwxr-xr-x  1 root root       19K Aug  8  2017 rpcdebug
+-rwxr-xr-x  1 root root       85K Aug  8  2017 rpc.gssd
+-rwxr-xr-x  1 root root       36K Aug  8  2017 rpc.idmapd
+-rwxr-xr-x  1 root root       28K Aug  4  2017 rpcinfo
+-rwxr-xr-x  1 root root      129K Aug  8  2017 rpc.mountd
+-rwxr-xr-x  1 root root       37K Aug  8  2017 rpc.nfsd
+-rwxr-xr-x. 1 root root       75K Jun 10  2014 rpc.rquotad
+-rwxr-xr-x  1 root root       98K Aug  8  2017 rpc.statd
+-rwxr-xr-x. 1 root root      543K Nov 20  2015 rsyslogd
+-rwxr-xr-x  1 root root       38K Nov  6  2016 rtacct
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 rtcwake
+-rwxr-xr-x. 1 root root       11K Mar  6  2015 rtkitctl
+-rwxr-xr-x  1 root root       45K Nov  6  2016 rtmon
+-rwxr-xr-x  1 root root        37 Nov  6  2016 rtpr
+lrwxrwxrwx  1 root root         6 Aug 24  2017 rtstat -> lnstat
+lrwxrwxrwx  1 root root        16 Jan 12  2018 runlevel -> ../bin/systemctl
+-rwxr-xr-x. 1 root root       33K Nov 20  2015 runuser
+-rwxr-xr-x. 1 root root       37K Mar  6  2015 sa
+-rwxr-xr-x. 1 root root       12K Jun 10  2014 safe_finger
+-rwxr-xr-x  1 root root       11K Aug  3  2017 sasl2-shared-mechlist
+-rwxr-xr-x  1 root root       93K Aug  3  2017 saslauthd
+-rwxr-xr-x  1 root root       20K Aug  3  2017 sasldblistusers2
+-rwxr-xr-x  1 root root       16K Aug  3  2017 saslpasswd2
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 sedispatch
+-rwxr-xr-x  1 root root       61K Aug  3  2017 sefcontext_compile
+-rwxr-xr-x  1 root root       12K Aug  3  2017 selabel_digest
+-rwxr-xr-x  1 root root       12K Aug  3  2017 selabel_lookup
+-rwxr-xr-x  1 root root       12K Aug  3  2017 selabel_lookup_best_match
+-rwxr-xr-x  1 root root       12K Aug  3  2017 selabel_partial_match
+-rwxr-xr-x  1 root root       12K Aug  3  2017 selinuxconlist
+-rwxr-xr-x  1 root root       12K Aug  3  2017 selinuxdefcon
+-rwxr-xr-x  1 root root      7.0K Aug  3  2017 selinuxenabled
+-rwxr-xr-x  1 root root      7.1K Aug  3  2017 selinuxexeccon
+-rwxr-xr-x  1 root root       16K Aug  3  2017 selinux_restorecon
+-rwxr-xr-x. 1 root root       36K Nov 20  2015 semanage
+-rwxr-xr-x. 1 root root       20K Nov 20  2015 semodule
+lrwxrwxrwx. 1 root root        21 Jun  1  2017 sendmail -> /etc/alternatives/mta
+-rwxr-xr-x. 1 root root      243K Jun 10  2014 sendmail.postfix
+-rwxr-xr-x  1 root root      3.2K Aug  4  2017 service
+-rwxr-xr-x. 1 root root       15K Nov 20  2015 sestatus
+-rwxr-xr-x  1 root root       12K Aug  3  2017 setcap
+-rwxr-xr-x  1 root root      7.1K Aug  3  2017 setenforce
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 setfiles
+-rwxr-xr-x. 1 root root       24K Jun 10  2014 setpci
+-rwxr-xr-x. 1 root root       84K Jun 10  2014 setquota
+-rwxr-xr-x. 1 root root      1.7K Apr 22  2015 setregdomain
+-rwxr-xr-x. 1 root root      3.3K Nov 20  2015 setroubleshootd
+-rwxr-xr-x. 1 root root       15K Nov 20  2015 setsebool
+-rwxr-xr-x. 1 root root       16K Jun 10  2014 setup
+-rwxr-xr-x. 1 root root       67K Nov 20  2015 sfdisk
+-rwxr-xr-x. 1 root root      169K Mar  6  2015 sgdisk
+-rwxr-xr-x. 1 root root       16K Jun 10  2014 sgpio
+-rwxr-xr-x  1 root root       20K Aug  8  2017 showmount
+lrwxrwxrwx  1 root root        16 Jan 12  2018 shutdown -> ../bin/systemctl
+-rwxr-xr-x  1 root root       11K Aug  4  2017 sim_server
+-rwxr-xr-x. 1 root root       16K Jun 10  2014 skdump
+-rwxr-xr-x. 1 root root      7.0K Jun 10  2014 sktest
+-rwxr-xr-x. 1 root root       43K Jun 10  2014 slattach
+-rwxr-xr-x  1 root root      724K Dec  1  2017 sln
+-rwxr-xr-x. 1 root root      610K Jun 10  2014 smartctl
+-rwxr-xr-x. 1 root root      558K Jun 10  2014 smartd
+-rwxr-xr-x  1 root root       69K Aug  8  2017 sm-notify
+-rwxr-xr-x. 1 root root       91K Jun 10  2014 smtp-sink
+-rwxr-xr-x. 1 root root       78K Jun 10  2014 smtp-source
+-rwxr-xr-x. 1 root root       898 Dec  1  2015 sosreport
+-rwxr-xr-x. 1 root root       40K Nov 20  2015 spice-vdagentd
+-rwxr-xr-x  1 root root      1.2M Oct 15 16:15 ss
+-rwxr-xr-x. 1 root root      797K Nov 20  2015 sshd
+-rwxr-xr-x. 1 root root      3.6K Nov 20  2015 sshd-keygen
+-rwxr-xr-x. 1 root root       81K Nov 20  2015 sss_cache
+-rwxr-xr-x. 1 root root       80K Nov 20  2015 sssd
+-rwxr-xr-x  1 root root       842 Aug  8  2017 start-statd
+-r-x--x---  1 root apache     15K Oct 20  2017 suexec
+-rwxr-xr-x. 1 root root       41K Nov 20  2015 sulogin
+-rwxr-xr-x  1 root root        67 Aug  4  2017 sushell
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 swaplabel
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 swapoff
+-rwxr-xr-x. 1 root root       50K Nov 20  2015 swapon
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 switch_root
+-rwxr-xr-x. 1 root root       24K Mar  6  2015 sysctl
+-rwxr-xr-x  1 root root       184 Aug  4  2017 sys-unconfig
+-rwxr-xr-x. 1 root root      3.9K Dec 23  2007 t1libconfig
+-rwxr-xr-x  1 root root      295K Nov  6  2016 tc
+-rwxr-xr-x. 1 root root       37K Jun 10  2014 tcpd
+-rwxr-xr-x. 1 root root       41K Jun 10  2014 tcpdmatch
+-rwxr-xr-x. 1 root root      820K Nov 20  2015 tcpdump
+-rwxr-xr-x. 1 root root       24K Nov 20  2015 tcpslice
+-rwxr-xr-x. 1 root root      301K Nov 21  2015 tcsd
+lrwxrwxrwx  1 root root        16 Jan 12  2018 telinit -> ../bin/systemctl
+-rwxr-xr-x  1 root root       16K Aug  3  2017 testsaslauthd
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_check -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_delta -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_dump -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_ls -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_metadata_size -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_repair -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_restore -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_rmap -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_show_duplicates -> pdata_tools
+lrwxrwxrwx  1 root root        11 Jan 12  2018 thin_trim -> pdata_tools
+-rwxr-xr-x. 1 root root      7.0K Nov 20  2015 tickadj
+lrwxrwxrwx. 1 root root        16 Jun  1  2017 tracepath -> ../bin/tracepath
+lrwxrwxrwx. 1 root root        17 Jun  1  2017 tracepath6 -> ../bin/tracepath6
+-rwxr-xr-x. 1 root root       24K Jun 10  2014 try-from
+-rwxr-xr-x. 2 root root       70K Nov  6  2016 tune2fs
+-rwxr-xr-x. 1 root root      2.9K Jul  9  2015 tuned
+-rwxr-xr-x. 1 root root      3.0K Jul  2  2015 tuned-adm
+lrwxrwxrwx  1 root root        14 Jan 12  2018 udevadm -> ../bin/udevadm
+lrwxrwxrwx  1 root root         9 Oct 19  2017 umount.nfs -> mount.nfs
+lrwxrwxrwx  1 root root         9 Oct 19  2017 umount.nfs4 -> mount.nfs
+-rwxr-xr-x. 1 root root       11K Nov 20  2015 umount.udisks2
+-rwsr-xr-x  1 root root       36K Nov  6  2016 unix_chkpwd
+-rwx------  1 root root       36K Nov  6  2016 unix_update
+-rwxr-xr-x  1 root root       83K Mar  6  2015 unsquashfs
+lrwxrwxrwx  1 root root        12 Sep  4  2017 update-alternatives -> alternatives
+-rwxr-xr-x. 1 root root      1.8K Jun 10  2014 update-pciids
+-rwxr-xr-x. 1 root root      3.3K Jun 10  2014 update-smart-drivedb
+-rwxr-xr-x. 1 root root       58K Nov 20  2015 usb_modeswitch
+-rwxr-xr-x. 1 root root      241K Nov 20  2015 usb_modeswitch_dispatcher
+-rwxr-xr-x. 1 root root       57K Jun 10  2014 usbmuxd
+-rwxr-x---. 1 root root      112K Mar  6  2015 useradd
+-rwxr-x---. 1 root root       79K Mar  6  2015 userdel
+-rws--x--x. 1 root root       40K Jun 10  2014 userhelper
+-rwxr-x---. 1 root root      112K Mar  6  2015 usermod
+-rwsr-xr-x  1 root root       12K Aug  4  2017 usernetctl
+-rwxr-xr-x  1 root root       15K Aug  4  2017 uuserver
+-rwxr-xr-x. 1 root root       49K Nov 20  2015 vdptool
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgcfgbackup -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgcfgrestore -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgchange -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgck -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgconvert -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgcreate -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgdisplay -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgexport -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgextend -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgimport -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgimportclone -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgmerge -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgmknodes -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgreduce -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgremove -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgrename -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgs -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgscan -> lvm
+lrwxrwxrwx  1 root root         3 Jan 12  2018 vgsplit -> lvm
+lrwxrwxrwx. 1 root root         4 Jun  1  2017 vigr -> vipw
+-rwxr-xr-x. 1 root root       59K Mar  6  2015 vipw
+-rwxr-xr-x  1 root root      646K Jan  5  2018 virtlockd
+-rwxr-xr-x  1 root root      642K Jan  5  2018 virtlogd
+-rwxr-xr-x. 1 root root      8.7K Nov 20  2015 virt-what
+-rwxr-xr-x. 1 root root      183K Nov 21  2015 visudo
+-rwxr-xr-x. 1 root root       20K Nov 21  2015 vmcore-dmesg
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 vpddecode
+-rwxr-xr-x. 1 root root       17K Nov 20  2015 weak-modules
+-rwxr-xr-x. 1 root root       28K Nov 20  2015 wipefs
+-rwxr-xr-x. 1 root root       90K Jun 16  2015 wpa_cli
+-rwxr-xr-x. 1 root root       45K Jun 16  2015 wpa_passphrase
+-rwxr-xr-x. 1 root root      1.4M Jun 16  2015 wpa_supplicant
+-rwxr-xr-x. 1 root root      1.4K Nov 20  2015 xfs_admin
+-rwxr-xr-x. 1 root root       638 Nov 20  2015 xfs_bmap
+-rwxr-xr-x. 1 root root      303K Nov 20  2015 xfs_copy
+-rwxr-xr-x. 1 root root      544K Nov 20  2015 xfs_db
+-rwxr-xr-x. 1 root root      292K Mar  6  2015 xfsdump
+-rwxr-xr-x. 1 root root       12K Nov 20  2015 xfs_estimate
+-rwxr-xr-x. 1 root root       767 Nov 20  2015 xfs_freeze
+-rwxr-xr-x. 1 root root       32K Nov 20  2015 xfs_fsr
+-rwxr-xr-x. 1 root root      303K Nov 20  2015 xfs_growfs
+-rwxr-xr-x. 1 root root       472 Nov 20  2015 xfs_info
+-rwxr-xr-x. 1 root root       62K Mar  6  2015 xfsinvutil
+-rwxr-xr-x. 1 root root      119K Nov 20  2015 xfs_io
+-rwxr-xr-x. 1 root root      332K Nov 20  2015 xfs_logprint
+-rwxr-xr-x. 1 root root      291K Nov 20  2015 xfs_mdrestore
+-rwxr-xr-x. 1 root root       747 Nov 20  2015 xfs_metadump
+-rwxr-xr-x. 1 root root      1007 Nov 20  2015 xfs_mkfile
+-rwxr-xr-x. 1 root root       650 Nov 20  2015 xfs_ncheck
+-rwxr-xr-x. 1 root root       81K Nov 20  2015 xfs_quota
+-rwxr-xr-x. 1 root root      543K Nov 20  2015 xfs_repair
+-rwxr-xr-x. 1 root root      354K Mar  6  2015 xfsrestore
+-rwxr-xr-x. 1 root root       16K Nov 20  2015 xfs_rtcp
+-rwxr-xr-x. 1 root root       15K Jun 10  2014 xqmstats
+-rwxr-xr-x. 1 root root       88K Oct 14 17:06 xtables-multi
+-rwxr-xr-x. 1 root root      9.3K Nov 20  2015 yum-complete-transaction
+-rwxr-xr-x. 1 root root      8.7K Nov 20  2015 yumdb
+-rwxr-xr-x. 1 root root      548K May  6  2017 zabbix_agentd
+lrwxrwxrwx. 1 root root        31 Jun  1  2017 zabbix_server -> /etc/alternatives/zabbix-server
+-rwxr-xr-x. 1 root root      2.2M May  6  2017 zabbix_server_mysql
+-rwxr-xr-x. 1 root root      2.2M May  6  2017 zabbix_server_pgsql
+-rwxr-xr-x  1 root root       15K Dec  1  2017 zdump
+-rwxr-xr-x  1 root root       51K Dec  1  2017 zic
