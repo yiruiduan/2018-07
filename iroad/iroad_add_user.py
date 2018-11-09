@@ -100,7 +100,7 @@ def add_user(phone_num,region_id,user_password,user_name,unit,num):
     elem_user.send_keys(unit)
     elem_know=driver.find_element_by_id("addUser_submit")
     elem_know.click()
-    time.sleep(2)
+    time.sleep(3)
     elem_on = driver.find_element_by_xpath('//*[@id="userManagerTable"]/tbody/tr[1]/td[9]/a[4]')
     elem_on.click()
     time.sleep(3)
@@ -138,6 +138,7 @@ if __name__=="__main__":
     password = "admin"
     sql = "insert into business_user (uid,user_name,user_dept,user_account,user_tel,user_pwd) values(%s,%s,%s,%s,%s,%s)"
     user_list = xsl_resolve(filename)
+    # print(user_list)
     exist_user_obj=User_in_mysql("192.169.0.26","root","ccico62979928","IROAD510000")
     exist_user_list=exist_user_obj.exist_user("sys_user_info","tel_phone")
     # exist_user_list1 = exist_user_obj.insert_user("sys_user_info", "tel_phone")
