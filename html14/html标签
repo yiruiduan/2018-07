@@ -8,13 +8,15 @@ body标签
                  行内标签：span标签（白板）
    标签之间可以嵌套：
    标签存在的意义，定位操作，css，js操作方便
+   GET提交数据把数据拼接到url之后可见。都在请求头上
+   post是打包到内容中提交过去。数据放到body中发过去。
    input系列：
        input type="text"        name属性
        input type="password"    name属性
        input type="submit"      提交表单的按钮
        input type="reset"      提交表单的按钮
        input type="button"      按钮
-       input type="radio"       单选框name，value属性（name相同就互斥）
+       input type="radio"       单选框na me，value属性（name相同就互斥）
        input type="checkbox"    复选框name，value属性（后台直接批量获取数据）
        input type="file"   name="filename"    上传文件   依赖于表单的一个属性enctype="multipart/form-data"
    多行输入系列：

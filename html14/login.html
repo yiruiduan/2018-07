@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+    <form action="http://localhost:8888/index" method="post">
+        <input type="text" value="用户名" name="user">
+        <input type="password" value="000000" name="pwd">
+        <input type="button" value="登录">
+        <input type="submit" value="提交">
+        <input type="image">
+    </form>
+    <form action="http://localhost:8888/index" enctype="multipart/form-data">
+        <div>
+            <p>请选择性别</p>
+            男：<input type="radio" name="sex" checked=checked value="1" />
+            女：<input type="radio" name="sex" value="2"/>
+        </div>
+        <div>
+            <p>爱好</p>
+            篮球：<input  type="checkbox" name="fav" value="1"/>
+            足球：<input  type="checkbox" name="fav" value="2"/>
+            乒乓球：<input  type="checkbox" name="fav" value="3"/>
+            排球：<input  type="checkbox" name="fav" value="4"/>
+            台球：<input  type="checkbox" name="fav" value="5"/>
+        </div>
+        <div>
+            <p>技能</p>
+            docker：<input type="checkbox" name="skill" value="1"/>
+            shell：<input type="checkbox" name="skill" value="2"/>
+            python：<input type="checkbox" name="skill" value="3"/>
+        </div>
+        <div>
+            <p>上传文件</p>
+            上传文件：<input  type="file" name="file"/>
+        </div>
+        <div>
+            <p>多行文本</p>
+            <textarea name="meno" ></textarea>
+        </div>
+        <div>
+            <p>城市</p>
+            <select name="city" size="10" multiple="multiple">
+                <option value="北京">北京</option>
+                <option value="天津">天津</option>
+                <option value="上海" selected="selected">上海</option>
+                <option value="广州">广州</option>
+                <option value="深圳">深圳</option>
+            </select>
+        </div>
+        <input type="submit" value="提交"/>
+        <input  type="reset" value="重置"/>
+    </form>
+
+</body>
+</html>

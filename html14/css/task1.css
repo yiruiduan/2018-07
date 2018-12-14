@@ -1,0 +1,10 @@
+.pg-header{
+    height: 38px;
+    background: #dddddd;
+    line-height: 38px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+div a{
+    padding-left: 15px;
+}

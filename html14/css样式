@@ -19,8 +19,16 @@
                 }
                 把html中所有的div设置上样式
             - 层级选择器   空格连接
+                .c1 .c2 div{
+                }
             - 组合选择器   ，连接
+                #i1,#i2,#i3{
+                }
+                .c1,.c2,.c3{
+                }
             - 属性选择器   对选择到的标签再通过属性再进行一次筛选
+                .c1[n="ni"]{
+                }
 
 css样式可以写在单独文件中
     引入方式：<link rel="stylesheet" href="commons.css"/>
@@ -29,7 +37,7 @@ css样式可以写在单独文件中
     标签上的style优先，其他按照编写顺序，越往下越优先
 
 边框
-    -  宽度，样式，颜色（border: 1px dotted red）
+    -  宽度，样式，颜色（border: 1px dotted red） solid
     -  上下左右
 
 背景
@@ -43,7 +51,7 @@ display
     display:inline;
     display:block;
     display:inline-block
-            具有inline属性，自己有多少占多少
+            具有inline属性
             具有block属性，可以设置无法设置的高度，宽度，padding，margin
     ********
     行内标签无法设置高度宽度和边距
