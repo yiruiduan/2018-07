@@ -2,9 +2,32 @@
     height: 38px;
     background: #dddddd;
     line-height: 38px;
-    padding-left: 30px;
-    padding-right: 30px;
 }
 div a{
     padding-left: 15px;
+}
+.pg-second{
+    height: 68px;
+    background: white;
+}
+.pg-third{
+    background: #C9033B;
+    height: 38px;
+    line-height: 38px;
+}
+.block_rectangle{
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px dotted #cccccc;
+    height: 38px;
+    margin-left: 10px;
+    line-height: 38px;
+}
+.block_square{
+    border: 1px solid red;
+    width: 22%;
+    height: 250px;
+    margin-left: 2%;
+    margin-top: 10px;
+    float: left;
 }

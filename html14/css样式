@@ -1,3 +1,4 @@
+
 在每一个标签上设置style属性：
         background: #7d0b0b;
         height: 48px;
@@ -74,7 +75,6 @@ height,width,line-height,color,font-size,font-weight
     line-height: 48px;  垂直方向   根据标签的高度
     font-size: 20px;    字体大小
     font-weight: 800;   字体加粗
-
 
 
 
