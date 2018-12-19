@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="i1">欢迎光临一诺小店</div>
+    <script>
+        function trundle() {
+            var tag = document.getElementById("i1");
+            var context= tag.innerText;
+            var f=context.charAt(0);
+            var l=context.substring(1,context.length);
+            var new_context=l+f;
+            tag.innerText=new_context;
+        }
+        setInterval("trundle()",500);
+    </script>
+</body>
+</html>
