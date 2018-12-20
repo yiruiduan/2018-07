@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .left {
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .pg-header{
+            height: 48px;
+            background-color: #2459a2;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            /*width: 100%;*/
+            color: white;
+            line-height: 48px;
+            z-index: 10;
+        }
+        .pg-context .menu{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            margin-top: 48px;
+            background-color: #cccccc;
+        }
+        .pg-context .context{
+            position: absolute;
+            top: 0;
+            left: 200px;
+            bottom: 0;
+            right: 0;
+            min-width: 980px;
+            z-index: 9;
+            margin-top: 48px;
+            background-color: rebeccapurple;
+        }
+        .pg-header .logo{
+            width: 200px;
+            text-align: center;
+        }
+        .pg-header .user{
+            color: black;
+            height: 48px;
+            line-height: 48px;
+            margin-right: 40px;
+            padding: 0 20px;
+        }
+        .pg-header .user:hover{
+            background-color: #204982;
+        }
+        .pg-header .user .b{
+            position: absolute;
+            top: 48px;
+            right: 40px;
+            background-color: #cccccc;
+            z-index: 11;
+            width: 160px;
+            line-height: 48px;
+            display: none;
+        }
+        .pg-header .user .b a{
+            display: block;
+        }
+        .pg-header .user:hover .b{
+            display: block;
+        }
+        .pg-header .user .a_style img{
+            height: 40px;
+            width: 40px;
+            margin-top: 4px;
+            border-radius: 50%
+        }
+    </style>
+</head>
+<body style="margin: 0">
+    <div class="pg-header">
+        <div class="logo left">LOGO</div>
+        <div class="user right" style="position: relative">
+            <a class="a_style" href="#">
+                <img  src="image/999.jpg">
+            </a>
+            <div class="b">
+                <a href="#">我的资料</a>
+                <a href="#">注销</a>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <div class="pg-context">
+        <div class="menu left">
+            <div style="background-color: #cccccc">
+                菜单栏
+            </div>
+        </div>
+        <div class="context right">
+            <div style="background-color: rebeccapurple;">
+                <p style="margin-top: 0">nihao</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="pg-footer"></div>
+</body>
+</html>

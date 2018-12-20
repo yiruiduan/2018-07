@@ -60,6 +60,7 @@
         function ShowTable(nid) {
             var current_header=document.getElementById(nid);
             var item_list=current_header.parentElement.parentElement.children;
+            console.log(item_list)
             for(var i=0;i<item_list.length;i++){
                 item_list[i].children[1].classList.add("hide");
             }
