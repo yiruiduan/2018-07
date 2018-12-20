@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .c1{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 9;
+        }
+        .c2{
+            width: 400px;
+            height: 500px;
+            background-color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -200px;
+            z-index: 10;
+        }
+        .c2 div{
+            width: 80%;
+            margin: 50px auto;
+        }
+        .view{
+            display: block;   
+        }
+    </style>
+</head>
+<body style="margin: 0">
+    <div>
+        <input type="button" value="添加" onclick="ShowModle()"/>
+        <input type="button" value="全选" onclick="ChooseAll()"/>
+        <input type="button" value="反选" onclick="CancleAll()"/>
+        <input type="button" value="取消" onclick="ReverseAll()"/>
+
+        <table>
+            <thead>
+                <th>请选择</th>
+                <th>主机名</th>
+                <th>端口</th>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>1.1.1.1</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>2.2.2.2</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>3.3.3.3</td>
+                    <td>100</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--遮罩层开始-->
+    <div class="c1 hide" name="t1"></div>
+    <!--遮罩层结束-->
+
+    <!--弹出框开始-->
+    <div class="c2 hide" name="t1">
+        <div >
+            <label for="i1">主机名：</label>
+            <input  type="text" id="i1"/>
+        </div>
+        <div >
+            <label for="i2">端&nbsp;&nbsp;&nbsp;口：</label>
+            <input  type="text" id="i2"/>
+        </div>
+        <div >
+            <input type="button" value="取消" onclick="HideModle()"/>
+            <input type="button" value="确定"/>
+        </div>
+    </div>
+    <!--弹出框结束-->
+
+    <script>
+        function ShowModle() {
+            var tag=document.getElementsByName("t1");
+            for(var i=0;i<tag.length;i++){
+                tag[i].classList.remove("hide");
+            }
+        }
+        function HideModle() {
+            var tag=document.getElementsByName("t1");
+            for(var i=0;i<tag.length;i++){
+                tag[i].classList.add("hide");
+            }
+        }
+        function ChooseAll() {
+            var  tbody= document.getElementById("tb");
+            var tr_list=tbody.children;
+            for(var i=0;i<tr_list.length;i++){
+                tr_list[i].children[0].children[0].checked=true;
+            }
+        }
+        function ReverseAll() {
+            var tbody = document.getElementById("tb");
+            var tr_list = tbody.children;
+            for (var i = 0; i < tr_list.length; i++) {
+                tr_list[i].children[0].children[0].checked = false;
+            }
+        }
+        function CancleAll() {
+            var tbody = document.getElementById("tb");
+            var tr_list = tbody.children;
+            for (var i = 0; i < tr_list.length; i++) {
+                if(tr_list[i].children[0].children[0].checked){
+                    tr_list[i].children[0].children[0].checked=false
+                }
+                else {
+                    tr_list[i].children[0].children[0].checked=true
+                }
+            }
+        }
+    </script>
+</body>
+</html>

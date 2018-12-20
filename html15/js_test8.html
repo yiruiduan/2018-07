@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .item .header{
+            height: 35px;
+            background-color: blue;
+            color: white;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 48px"></div>
+    <div style="width: 300px">
+        <div class="item">
+            <div id="i1" class="header" onclick="ShowTable('i1')">菜单1</div>
+            <div class="context">
+                <div>内容一</div>
+                <div>内容一</div>
+                <div>内容一</div>
+                <div>内容一</div>
+            </div>
+        </div>
+        <div class="item">
+            <div id="i2" class="header" onclick="ShowTable('i2')">菜单2</div>
+            <div class="context hide">
+                <div>内容2</div>
+                <div>内容2</div>
+                <div>内容2</div>
+                <div>内容2</div>
+            </div>
+        </div>
+        <div class="item">
+            <div  id="i3" class="header" onclick="ShowTable('i3')">菜单3</div>
+            <div class="context hide">
+                <div>内容3</div>
+                <div>内容3</div>
+                <div>内容3</div>
+                <div>内容3</div>
+            </div>
+        </div>
+        <div class="item">
+            <div  id="i4" class="header" onclick="ShowTable('i4')">菜单4</div>
+            <div class="context hide">
+                <div>内容4</div>
+                <div>内容4</div>
+                <div>内容4</div>
+                <div>内容4</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function ShowTable(nid) {
+            var current_header=document.getElementById(nid);
+            var item_list=current_header.parentElement.parentElement.children;
+            for(var i=0;i<item_list.length;i++){
+                item_list[i].children[1].classList.add("hide");
+            }
+            current_header.nextElementSibling.classList.remove("hide");
+        }
+    </script>
+</body>
+</html>
