@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link  rel="stylesheet" href="fontawesome-free-5.6.3-web/css/all.min.css">
     <style>
         .left {
             float: left;
@@ -56,15 +57,32 @@
         .pg-header .user:hover{
             background-color: #204982;
         }
+        .pg-header .icons{
+            height: 48px;
+            padding: 0 30px;
+            font-size: 30px;
+        }
+        .pg-header .icons span{
+            display:inline-block;
+            padding: 14px 7px;
+            line-height:1px;
+            border-radius: 50%;
+            font-size: 8px;
+            background-color: orange
+        }
+        .pg-header .icons:hover{
+            background-color: #204982;
+        }
         .pg-header .user .b{
             position: absolute;
             top: 48px;
             right: 40px;
-            background-color: #cccccc;
+            background-color: #dddddd;
             z-index: 11;
             width: 160px;
             line-height: 48px;
             display: none;
+            border-radius: 5px;
         }
         .pg-header .user .b a{
             display: block;
@@ -90,7 +108,16 @@
             <div class="b">
                 <a href="#">我的资料</a>
                 <a href="#">注销</a>
+                <a href="#">退出登录</a>
             </div>
+        </div>
+        <div class="icons right">
+            <i class="fas fa-bell"></i>
+            <span>5</span>
+        </div>
+        <div class="icons right">
+            <i class="far fa-envelope" ></i>
+            <span>3</span>
         </div>
         <div style="clear: both"></div>
     </div>
