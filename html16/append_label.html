@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="submit" onclick="addEle1();" value="+"/>
+    <input type="submit" onclick="addEle2();" value="+"/>
+    <div id="i1">
+        <p>
+            <input />
+        </p>
+    </div>
+
+    <script>
+        function addEle1() {
+            var tag =document.getElementById("i1");
+            var label = "<p><input style='color: pink;'/></p>";
+            tag.insertAdjacentHTML("beforeEnd",label);
+        }
+        function addEle2() {
+            var tag = document.getElementById("i1");
+            var labelInput = document.createElement("input");
+            labelInput.value = "请输入关键字";
+            labelInput.style.color= "red";
+            var labelP= document.createElement("p");
+            labelP.appendChild(labelInput);
+            tag.appendChild(labelP)
+
+        }
+    </script>
+</body>
+</html>

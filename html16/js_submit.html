@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="i1" action="http://localhost:8888/index">
+        <input type="text" name="user"/>
+        <input type="text" name="password"/>
+        <input type="text" name="tel_code"/>
+        <a onclick="submitForm()">提交</a>
+    </form>
+    <script>
+        function submitForm() {
+            document.getElementById("i1").submit()
+        }
+    </script>
+</body>
+</html>

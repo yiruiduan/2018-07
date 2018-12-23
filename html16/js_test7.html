@@ -43,6 +43,7 @@
         <input type="button" value="全选" onclick="ChooseAll()"/>
         <input type="button" value="反选" onclick="CancleAll()"/>
         <input type="button" value="取消" onclick="ReverseAll()"/>
+        <input type="button" value="+" onclick="addHost()"/>
 
         <table>
             <thead>
@@ -85,7 +86,7 @@
         </div>
         <div >
             <input type="button" value="取消" onclick="HideModle()"/>
-            <input type="button" value="确定"/>
+            <input type="button" value="确定" onclick="addHost()"/>
         </div>
     </div>
     <!--弹出框结束-->
@@ -127,6 +128,33 @@
                 else {
                     tr_list[i].children[0].children[0].checked=true
                 }
+            }
+        }
+        function addHost() {
+            var host = document.getElementById("i1");
+            var port = document.getElementById("i2");
+            if(host.value!=""&& port.value!=""){
+                var tag = document.getElementById("tb");
+                var labelTr=document.createElement("tr");
+                var labelTd1=document.createElement("td");
+                var labelInput=document.createElement("input");
+                labelInput.type ="checkbox";
+                labelInput.value= "请输入关键字"
+                labelTd1.appendChild(labelInput);
+                labelTr.appendChild(labelTd1);
+                var labelTd2=document.createElement("td");
+                labelTd2.innerText= host.value;
+                // labelTd2.innerText="heeeeeee" ;
+                labelTr.appendChild(labelTd2);
+                var labelTd3= document.createElement("td")
+                labelTd3.innerText=port.value;
+                // labelTd3.innerText="99999";
+                labelTr.appendChild(labelTd3);
+                tag.appendChild(labelTr);
+                HideModle();
+
+            }else{
+                alert("主机或端口不合法");
             }
         }
     </script>
