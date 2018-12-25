@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="width: 200px;height: 300px;background-color: #dddddd" id="i1">点击</div>
+    <script>
+            var tag=document.getElementById("i1");
+            tag.addEventListener("click", function () {
+                console.log('aaaa')
+            },true);
+            tag.addEventListener("click", function () {
+                console.log("bbbb")
+            },true);
+    </script>
+</body>
+</html>

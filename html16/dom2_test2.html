@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            width: 300px;
+            height: 600px;
+            background-color: #dddddd;
+        }
+        #context{
+            width: 150px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="context"></div>
+    </div>
+
+    <script>
+        var main=document.getElementById("main");
+        var context=document.getElementById("context")
+        main.addEventListener("click", function () {
+            console.log("main")
+        },true);
+        context.addEventListener("click", function () {
+            console.log("context")
+        },true)
+
+    </script>
+</body>
+
+</html>

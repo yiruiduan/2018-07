@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <table id="i1" border="1" class="test" >
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+    </table>
+    <table id="i2" border="1" class="test">
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+        <tr><td>1</td><td>2</td><td>3</td></tr>
+    </table>
+    <script>
+        function changeMenu() {
+            var tag =document.getElementsByTagName("table");
+            for(var i=0;i<tag.length;i++){
+                var labelTr=tag[i].children[0].children;
+                for(var j=0;j<labelTr.length;j++){
+                    labelTr[j].onmouseover=function () {
+                        this.style.backgroundColor="red";
+                    };
+                    labelTr[j].onmouseout=function () {
+                        this.style.backgroundColor="";
+                    }
+                }
+            }
+
+
+        }
+        changeMenu()
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="全选"/>
+    <input type="button" value="反选"/>
+    <input type="button" value="取消"/>
+    <table id="tab" border="1">
+        <thead>
+            <th>请选择</th>
+            <th>主机</th>
+            <th>端口</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>1.1.1.1</td>
+                <td>1111</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>2.2.2.</td>
+                <td>2222</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>3.3.3.3</td>
+                <td>3333</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>4.4.4.4</td>
+                <td>4444</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>5.5.5.5</td>
+                <td>5555</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>6.6.6.6</td>
+                <td>6666</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        var checkAll= $("input[value='全选']");
+        checkAll[0].onclick = function () {
+            $("#tab input[type='checkbox']").prop("checked",true);
+
+        };
+        var resetAll =$("input[value='取消']");
+        resetAll[0].onclick = function () {
+            $("#tab input[type='checkbox']").prop("checked",false);
+
+        };
+        var cancleAll =$("input[value='反选']");
+        cancleAll[0].onclick =function () {
+            $("#tab input[type='checkbox']").each(function () {
+                var v=this.checked?false:true
+                $(this.checked)
+            });
+
+        };
+    </script>
+</body>
+</html>
