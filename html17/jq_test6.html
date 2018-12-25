@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .shadow{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0.5;
+            background-color: #333333;
+            z-index: 10;
+        }
+        .third{
+            position: fixed;
+            z-index: 11;
+            right: 20px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <input type="button" value="开关" class="third"/>
+    <div>sdfsdfsdf</div>
+    <div name="shadow"></div>
+    <input id="i1" type="checkbox"/>
+</body>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $("input[value='开关']").click(function () {
+            $("div[name='shadow']").toggleClass("shadow");
+        });
+    </script>
+</html>

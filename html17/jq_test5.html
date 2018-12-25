@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .second{
+            background-color: #333333;
+            opacity: 0.5;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .third{
+            width: 600px;
+            height: 400px;
+            background-color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -300px;
+            z-index: 11;
+        }
+        .third .input_style{
+            margin: 50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="添加"/>
+    <table border="1">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <td target="hostname">1.1.1.1</td>
+                <td target="port">80</td>
+                <td>
+                    <a name="edit">编辑</a> | <a name="delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td target="hostname">2.2.2.2</td>
+                <td target="port">90</td>
+                <td>
+                    <a name="edit">编辑</a> | <a name="delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td target="hostname">3.3.3.3</td>
+                <td target="port">100</td>
+                <td>
+                    <a name="edit">编辑</a> | <a name="delete">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td target="hostname">4.4.4.4</td>
+                <td target="port">110</td>
+                <td>
+                    <a name="edit">编辑</a> | <a name="delete">删除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="second hide"></div>
+    <div class="third hide">
+        <div class="input_style">
+            <span>hostname:</span>
+            <input name="hostname" type="text"/>
+        </div>
+        <div class="input_style">
+            <span>port:</span>
+            <input name="port" type="text"/>
+        </div>
+        <div class="input_style">
+            <input type="button" value="确定"/>
+            <input type="button" value="取消"/>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $("input[value='添加']").click(function () {
+           $(".second,.third").removeClass("hide");
+        });
+        $(".third div input[value='取消']").click(function () {
+            $(".second,.third").addClass("hide");
+            $(".third .input_style span").next().val("");
+        });
+        $("td>a[name='edit']").click(function () {
+            $(".second,.third").removeClass("hide");
+            var tds =$(this).parent().prevAll();
+            $(tds).each(function () {
+                var attributes=$(this).attr("target");
+                var real_text=$(this).text();
+                $('.third .input_style [name="'+attributes+'"]').val(real_text);
+            });
+            $(".third .input_style [value='确定']").click(function () {
+                var td_val=$(this).parent().siblings();
+                td_val.each(function () {
+                    var attribute = $(this).children("input").attr("name");
+                    var rel_value= $(this).children("input").val();
+                    $(tds).each(function () {
+
+                        console.log(attribute,rel_value,);
+
+                    });
+                });
+                $(".second,.third").addClass("hide");
+            })
+
+        });
+        $("td>a[name='delete']").click(function(){
+            $(this).parent().parent().addClass("hide");
+        });
+    </script>
+</body>
+</html>
