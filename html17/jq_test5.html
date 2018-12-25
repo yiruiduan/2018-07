@@ -108,8 +108,9 @@
                     var attribute = $(this).children("input").attr("name");
                     var rel_value= $(this).children("input").val();
                     $(tds).each(function () {
-
-                        console.log(attribute,rel_value,);
+                        if($(this).attr("target")==attribute){
+                            $(this).text(rel_value)
+                        };
 
                     });
                 });
