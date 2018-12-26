@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .frame_first{
+            width: 980px;
+            height: 200px;
+            border: 1px #dddddd solid;
+            position: relative;
+            margin: 0 auto
+        }
+        .icon_praise_1{
+            width: 18px;
+            height: 20px;
+            background-image: url("image/icon_18_118.png");
+            background-position: 0 -40px;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+
+        }
+        .icon_praise_1:hover{
+            background-position: 0 0;
+        }
+        .icon_praise_2{
+            background-position: 0 -20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame_first">
+            <div class="icon_praise_1"></div>
+    </div>
+    <div class="frame_first">
+            <div class="icon_praise_1"></div>
+    </div>
+    <div class="frame_first">
+            <div class="icon_praise_1"></div>
+    </div>
+    <div class="frame_first">
+            <div class="icon_praise_1"></div>
+    </div>
+    <div class="frame_first">
+            <div class="icon_praise_1"></div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(".frame_first .icon_praise_1").click(function () {
+            $(this).addClass("icon_praise_2");
+            addFavor(this);
+        });
+        function addFavor(self) {
+            //dom对象
+            var tag=document.createElement('span');
+            var fontSize= 15;
+            var right= 30;
+            var bottom = 30;
+            var opacity=1;
+            $(tag).text("+1");
+            $(tag).css("color","green");
+            $(tag).css("position","absolute");
+            $(tag).css("fontSize",fontSize+"px");
+            $(tag).css("right",right+"px");
+            $(tag).css("bottom",bottom+"px");
+            $(tag).css("opacity",opacity);
+            $(self).parent().append(tag);
+            //
+            var obj=setInterval(function () {
+                fontSize= fontSize+10;
+                right= right+5;
+                bottom = bottom+10;
+                opacity=opacity-0.2;
+                $(tag).css("fontSize",fontSize+"px");
+                $(tag).css("right",right+"px");
+                $(tag).css("bottom",bottom+"px");
+                $(tag).css("opacity",opacity);
+                if(opacity < 0){
+                    clearInterval(obj);
+                     $(tag).remove();
+                };
+            },50)
+
+        }
+    </script>
+
+</body>
+</html>

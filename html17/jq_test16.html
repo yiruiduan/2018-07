@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error{
+            color: #C9033B;
+        }
+    </style>
+</head>
+<body>
+    <!--表单验证-->
+    <form  id="f1" action="http://localhost:8888/index" method="get">
+        <div><input type="text" name="user"/></div>
+        <div><input type="text" name="user1"/></div>
+        <div><input type="text" name="user2"/></div>
+        <div><input type="password" name="user3"/></div>
+        <div><input type="text" name="user4"/></div>
+        <input type="submit" value="提交"/>
+    </form>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(":submit").click(function () {
+            var flag=true;
+            $("form div .error").remove();
+            $(this).parent().find("input[type='text'],input[type='password']").each(function () {
+                var tag=$(this).val();
+                if(tag.length<=0){
+                    flag =false;
+                    var span_message=document.createElement("span");
+                    span_message.className="error";
+                    span_message.innerText="必填";
+                    $(this).after(span_message);
+                };
+            });
+            return flag;
+        })
+    </script>
+</body>
+</html>

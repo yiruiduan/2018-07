@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="http://www.baidu.com" onclick="return clickOn()">点击</a>
+    <a href="http://www.baidu.com" id="i1">点击2</a>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+
+        function clickOn() {
+            alert(123);
+            return false;
+        };
+        $("#i1").click(function () {
+            alert(456)
+            return false;
+        })
+    </script>
+
+</body>
+</html>

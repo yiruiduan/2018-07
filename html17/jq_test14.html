@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <!--绑定事件-->
+    <input id="i1" type="text"/>
+    <input id="a1" type="button" value="添加"/>
+    <input id="a2" type="button" value="删除"/>
+    <input id="a3" type="button" value="复制"/>
+    <ul id="u1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#a1").click(function () {
+            var value=$("#i1").val();
+            $("#u1").append("<li>"+value+"</li>");
+        });
+        $("#u1").delegate("li","click",function () {
+            var v= $(this).text();
+            alert(v)
+        });
+        $("#a2").click(function () {
+            var value=$("#i1").val();
+            $("#u1").children().eq(value).remove();
+        });
+        $("#a3").click(function () {
+            var value=$("#i1").val();
+            var new_text=$("#u1").children().eq(value).clone();
+            $("#u1").append(new_text)
+        });
+    </script>
+</body>
+</html>

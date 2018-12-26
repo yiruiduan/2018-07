@@ -109,17 +109,64 @@
                     var rel_value= $(this).children("input").val();
                     $(tds).each(function () {
                         if($(this).attr("target")==attribute){
-                            $(this).text(rel_value)
+                            $(this).text(rel_value);
                         };
-
                     });
                 });
                 $(".second,.third").addClass("hide");
             })
-
         });
+
+        // $(".third .input_style [value='确定']").click(function () {
+        //     var trs=document.createElement("tr");
+        //     $(".third .input_style span+input").each(function () {
+        //         var attributes=$(this).attr("name");
+        //         var td= document.createElement("td");
+        //         td.innerText= $(this).val();
+        //         td.setAttribute("target",attributes);
+        //         $(trs).append(td)
+        //     });
+        //     var tda=document.createElement("td");
+        //     var a_edit=document.createElement("a");
+        //     a_edit.setAttribute("name","edit");
+        //     a_edit.innerText = "编辑";
+        //     tda.appendChild(a_edit);
+        //     tda.append(" | ");
+        //     var a_delete=document.createElement("a");
+        //     a_delete.setAttribute("name","delete");
+        //     a_delete.innerText = "删除";
+        //     tda.appendChild(a_delete);
+        //     trs.appendChild(tda);
+        //     $("table tbody").append(trs);
+        //     $(".second,.third").addClass("hide");
+        // });
+
+         $(".third .input_style ").delegate("[value='确定']","click",function () {
+            var trs=document.createElement("tr");
+            $(".third .input_style span+input").each(function () {
+                var attributes=$(this).attr("name");
+                var td= document.createElement("td");
+                td.innerText= $(this).val();
+                td.setAttribute("target",attributes);
+                $(trs).append(td)
+            });
+            var tda=document.createElement("td");
+            var a_edit=document.createElement("a");
+            a_edit.setAttribute("name","edit");
+            a_edit.innerText = "编辑";
+            tda.appendChild(a_edit);
+            tda.append(" | ");
+            var a_delete=document.createElement("a");
+            a_delete.setAttribute("name","delete");
+            a_delete.innerText = "删除";
+            tda.appendChild(a_delete);
+            trs.appendChild(tda);
+            $("table tbody").append(trs);
+            $(".second,.third").addClass("hide");
+        });
+
         $("td>a[name='delete']").click(function(){
-            $(this).parent().parent().addClass("hide");
+            $(this).parent().parent().remove();
         });
     </script>
 </body>
