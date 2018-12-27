@@ -87,6 +87,10 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
+        function labelDelete(arg) {
+            console.log(arg);
+            $(arg).parent().parent().remove();
+        };
         $("input[value='添加']").click(function () {
            $(".second,.third").removeClass("hide");
         });
@@ -159,15 +163,19 @@
             var a_delete=document.createElement("a");
             a_delete.setAttribute("name","delete");
             a_delete.innerText = "删除";
+            $(a_delete).click(function () {
+                labelDelete(this)
+            });
+
             tda.appendChild(a_delete);
             trs.appendChild(tda);
             $("table tbody").append(trs);
             $(".second,.third").addClass("hide");
         });
-
-        $("td>a[name='delete']").click(function(){
-            $(this).parent().parent().remove();
+        $("td>a[name='delete']").click(function () {
+            labelDelete(this);
         });
+
     </script>
 </body>
 </html>

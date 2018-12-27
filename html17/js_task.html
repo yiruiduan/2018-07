@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .edit{
+            background-color: #ffcc00;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="button" value="全选"/>
+    <input type="button" value="反选"/>
+    <input type="button" value="取消"/>
+    <input type="button" value="进入编辑模式"/>
+    <table border="1">
+        <thead>
+            <th>选择</th>
+            <th>主机名</th>
+            <th>端口</th>
+            <th>状态</th>
+        </thead>
+        <tbody id="tb1">
+            <tr>
+                <td target="choose">
+                    <input type="checkbox"/>
+                </td>
+                <td target="hostname">1.1.1.1</td>
+                <td target="port">1111</td>
+                <td target="status">上线</td>
+            </tr>
+            <tr>
+                <td target="choose">
+                    <input type="checkbox"/>
+                </td>
+                <td target="hostname">2.2.2.2</td>
+                <td target="port">2222</td>
+                <td target="status">下线</td>
+            </tr>
+            <tr>
+                <td target="choose">
+                    <input type="checkbox"/>
+                </td>
+                <td target="hostname">3.3.3.3</td>
+                <td target="port">3333</td>
+                <td target="status">上线</td>
+            </tr>
+            <tr>
+                <td target="choose">
+                    <input type="checkbox"/>
+                </td>
+                <td target="hostname">4.4.4.4</td>
+                <td target="port">4444</td>
+                <td target="status">下线</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/newInput.js"></script>
+    <script>
+
+        // 单个标签的操作
+        function aloneTdEdit(arg) {
+            if( $(arg).is(":checked")){
+                $(arg).parent().siblings().each(function () {
+                    tdEdit(this);
+                });
+            }else {
+                tdSave($(arg).parent().parent());
+            };
+        }
+        // 修改一行数据  c传tr下的除了checkbox的td标签
+        function tdEdit(arg) {
+            if($(arg).find("input").length==0){
+                var value=$(arg).text();
+                $(arg).text("");
+            }else {
+                value=$(arg).children("input").val();
+                $(arg).children("input").remove();
+            };
+
+            if($(arg).attr("target")!="status"){
+                var new_input=$(arg).newInput(value);
+                $(arg).append(new_input);
+            }else{
+                var new_select =$(arg).newSelect(value);
+                $(arg).append(new_select);
+            }
+            if($(arg).parent().attr("editstatus")!="true"){
+                $(arg).parent().attr("editstatus","true");
+            };
+        }
+        // 对列表中的行进行编辑
+        function tdsEdit(){
+            $("#tb1 input:checkbox").each(function () {
+                if($(this).prop("checked")){
+                    $(this).parent().siblings().each(function () {
+                        tdEdit($(this));
+                    });
+
+                };
+            })
+        };
+        // 对单行进行保存 传tr
+        function tdSave(arg) {
+            var hostname=$(arg).children("[target='hostname']").children().val();
+            var port=$(arg).children("[target='port']").children().val();
+            var status=$(arg).children("[target='status']").children().val();
+            $(arg).children("[target='hostname']").children().remove();
+            $(arg).children("[target='port']").children().remove();
+            $(arg).children("[target='status']").children().remove();
+            $(arg).children("[target='hostname']").text(hostname);
+            $(arg).children("[target='port']").text(port);
+            $(arg).children("[target='status']").text(status);
+            $(arg).removeAttr("editstatus");
+        }
+        // 对列表进行编辑后保存
+        function tdsSave(){
+            $("#tb1 [editstatus='true']").each(function () {
+                tdSave(this);
+            });
+        };
+
+        // 全选
+        $("input[value='全选']").click(function () {
+            ($("input[value='进入编辑模式']").hasClass("edit"))
+            $("#tb1 td input").prop("checked",true);
+            var edit_button = $(this).siblings("[value='进入编辑模式']");
+            if(edit_button.hasClass("edit")){
+                // aloneTdEdit(this);
+                $("#tb1 tr").each(function () {
+                    if($("#tb1 td input").is(":checked")){
+                        $(this).children("[target='choose']").siblings().each(
+                            function () {
+                                tdEdit(this);
+                            }
+                        );
+                    };
+                });
+            }
+        });
+        // 取消
+        $("input[value='取消']").click(function () {
+            $("#tb1 td input").prop("checked",false);
+            var edit_button = $(this).siblings("[value='进入编辑模式']");
+            if(edit_button.hasClass("edit")){
+                // aloneTdEdit(this);
+                tdsSave();
+            }
+        });
+        // 反选
+        $("input[value='反选']").click(function () {
+            $("#tb1 td [type='checkbox']").each(function () {
+                $(this).prop("checked")?$(this).prop("checked",false):$(this).prop("checked",true);
+            });
+            var edit_button = $(this).siblings("[value='进入编辑模式']");
+            if(edit_button.hasClass("edit")){
+                $("#tb1 tr").each(function () {
+                    if($(this).attr("editstatus")){
+                        tdSave(this)
+                    }else{
+                        $(this).children("[target='choose']").siblings().each(
+                            function () {
+                                tdEdit($(this))
+                            })
+                    };
+                });
+            }
+        });
+        // 点击checkbox进行编辑
+        $("#tb1 tr [target='choose'] input").click(function () {
+            var edit_button = $(this).parent().parent().parent().parent().parent().children("[value='进入编辑模式']");
+            if(edit_button.hasClass("edit")){
+                aloneTdEdit(this);
+            }
+        });
+        // 进入编辑模式
+        $("input[value='进入编辑模式']").click(function () {
+            $(this).toggleClass("edit");
+            if($(this).hasClass("edit")){
+                tdsEdit();
+            }else {
+                tdsSave();
+            }
+        });
+    </script>
+</body>
+</html>
