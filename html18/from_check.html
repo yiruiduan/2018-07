@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error{
+            color: #C9033B;
+        }
+        .right{
+            float: right;
+        }
+        .left{
+            float: left;
+        }
+
+        .head_pg{
+            background-color: #2459a2;
+            color: white;
+            margin-top: 0px;
+        }
+        .pg{
+            width: 980px;
+            border: 1px solid #eeeeee;
+            margin: 0 auto;
+        }
+        .body_left{
+            width: 40%;
+            text-align: right;
+        }
+        .body_left div{
+            height: 38px;
+        }
+        .body_right{
+            width: 60%;
+        }
+        .body_right div{
+            height: 38px;
+        }
+    </style>
+</head>
+<body>
+    <!--表单验证-->
+    <div class="pg">
+        <h1 class="head_pg" style="text-align: center">登录页面</h1>
+        <form  id="f1" action="http://localhost:8888/index" method="get">
+            <div class="body_left left">
+                <div>用户名：</div>
+                <div>密码：</div>
+                <div>确认密码：</div>
+                <div>手机号：</div>
+                <div>邮箱：</div>
+            </div>
+            <div class="body_right right">
+                <div>
+                    <input type="text" name="user"  range="5-20" format="true"/>
+                </div>
+                <div>
+                    <input type="password" name="password" require="true"/>
+                </div>
+                <div>
+                    <input type="password" name="checkpassword" require="true" checkpassword_to="password"/>
+                </div>
+                <div>
+                    <input type="text" name="user" require="true" format_tel="true"/>
+                </div>
+                <div>
+                    <input type="text" name="user" require="true" format_mail="true"/>
+                </div>
+            </div>
+            <div style="clear: both"></div>
+            <input type="submit" value="提交"/>
+        </form>
+    </div>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/from_verify.js"></script>
+</body>
+</html>
