@@ -7,14 +7,27 @@
         .edit{
             background-color: #ffcc00;
         }
+        table{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .header_type{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .right{
+            float: right;
+        }
     </style>
 
 </head>
 <body>
-    <input type="button" value="全选"/>
-    <input type="button" value="反选"/>
-    <input type="button" value="取消"/>
-    <input type="button" value="进入编辑模式"/>
+    <div class="header_type">
+        <input type="button" value="全选"/>
+        <input type="button" value="反选"/>
+        <input type="button" value="取消"/>
+        <input type="button" value="进入编辑模式"/>
+    </div>
     <table border="1">
         <thead>
             <th>选择</th>
@@ -125,8 +138,8 @@
         };
 
         // 全选
-        $("input[value='全选']").click(function () {
-            ($("input[value='进入编辑模式']").hasClass("edit"))
+        $("div input[value='全选']").click(function () {
+            ($("div input[value='进入编辑模式']").hasClass("edit"));
             $("#tb1 td input").prop("checked",true);
             var edit_button = $(this).siblings("[value='进入编辑模式']");
             if(edit_button.hasClass("edit")){
@@ -143,7 +156,7 @@
             }
         });
         // 取消
-        $("input[value='取消']").click(function () {
+        $("div input[value='取消']").click(function () {
             $("#tb1 td input").prop("checked",false);
             var edit_button = $(this).siblings("[value='进入编辑模式']");
             if(edit_button.hasClass("edit")){
@@ -152,7 +165,7 @@
             }
         });
         // 反选
-        $("input[value='反选']").click(function () {
+        $("div input[value='反选']").click(function () {
             $("#tb1 td [type='checkbox']").each(function () {
                 $(this).prop("checked")?$(this).prop("checked",false):$(this).prop("checked",true);
             });
@@ -172,13 +185,14 @@
         });
         // 点击checkbox进行编辑
         $("#tb1 tr [target='choose'] input").click(function () {
-            var edit_button = $(this).parent().parent().parent().parent().parent().children("[value='进入编辑模式']");
+            // var edit_button = $(this).parent().parent().parent().parent().parent().parent().children("[value='进入编辑模式']");
+            var edit_button = $(this).parent().parent().parent().parent().parent().children("div").children("[value='进入编辑模式']");
             if(edit_button.hasClass("edit")){
                 aloneTdEdit(this);
             }
         });
         // 进入编辑模式
-        $("input[value='进入编辑模式']").click(function () {
+        $("div input[value='进入编辑模式']").click(function () {
             $(this).toggleClass("edit");
             if($(this).hasClass("edit")){
                 tdsEdit();
