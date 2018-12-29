@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from rediscluster import StrictRedisCluster
 import sys
+import redis
 
 def redis_cluster():
     redis_nodes=[{"host":"192.168.1.161","port":7000},
