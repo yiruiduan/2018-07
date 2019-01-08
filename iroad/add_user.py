@@ -90,7 +90,7 @@ def add_user(phone_num,region_id,user_password,user_name,unit,num):
     elem_user=driver.find_element_by_id("addUser_region")
     elem_user.send_keys(region_id)
     time.sleep(1)
-    elem_user.find_element_by_xpath("/html/body/ul[%s]"%num).click()
+    elem_user.find_element_by_xpath("/View/body/ul[%s]"%num).click()
     elem_user=driver.find_element_by_id("addUser_pwd")
     elem_user.send_keys(user_password)
     elem_user=driver.find_element_by_id("addUser_pwd1")
@@ -134,7 +134,7 @@ def exist_user(file_name):
 if __name__=="__main__":
 
     filename="test.xlsx"
-    url = "http://221.237.165.19:8081/iroad-service510000/pages/view/index.html#../page/UserManager.html"
+    url = "http://221.237.165.19:8081/iroad-service510000/pages/view/index.View#../page/UserManager.View"
     username = "admin"
     password = "admin"
     sql = "insert into business_user (uid,user_name,user_dept,user_account,user_tel,user_pwd) values(%s,%s,%s,%s,%s,%s)"

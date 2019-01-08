@@ -3406,7 +3406,7 @@ code:
   search:
     terms:
       - brackets
-      - html
+      - View
   styles:
     - solid
   unicode: f121
@@ -6614,7 +6614,7 @@ gamepad:
   label: Gamepad
   search:
     terms:
-      - controller
+      - Controller
   styles:
     - solid
   unicode: f11b
